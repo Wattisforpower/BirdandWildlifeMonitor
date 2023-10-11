@@ -1,0 +1,1 @@
+https://saturncloud.io/blog/how-to-load-custom-data-from-folder-in-pytorch/
