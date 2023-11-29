@@ -94,13 +94,15 @@ model.compile(
 
 model.summary()
 
-epochs = 60
+
+epochs = 100
 
 history = model.fit(
     train_ds,
     validation_data=validation_ds,
     epochs=epochs
 )
+
 
 # Visualizing Training Results
 
@@ -125,3 +127,25 @@ plt.plot(epochs_range, val_loss, label='Validation Loss')
 plt.legend(loc='upper right')
 plt.title('Training and Validation Loss')
 plt.show()
+
+Barnswallow_path = "output.png"
+
+
+img = tf.keras.utils.load_img(
+    Barnswallow_path, target_size=(image_height, image_width)
+)
+
+img_array = tf.keras.utils.img_to_array(img)
+img_array = tf.expand_dims(img_array, 0) # create a batch
+
+predictions = model.predict(img_array)
+score = tf.nn.softmax(predictions[0])
+
+print(
+   "This image most likely belongs to {} with a {:.2f} percent confidence."
+    .format(class_names[np.argmax(score)], 100 * np.max(score)) 
+)
+
+# convert to a tensorflow lite model
+
+ 
