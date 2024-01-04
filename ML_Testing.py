@@ -14,10 +14,6 @@ BC.Model('relu', 'relu', 'same', 0.2)
 
 BC.TrainModel(400, 'adam')
 
-BC.PlotResults('relureluAdam.png')
-
-BC.Test('PredictiveData\BarnSwallow-1.jpeg', 90.00)
-BC.Test('PredictiveData\CommonWoodpigeon-1.jpeg', 90.00)
-BC.Test('output.png', 90.00)
+BC.PlotResults('relureluAdamV2.png')
 
 BC.SaveModel('modelV2.tflite')

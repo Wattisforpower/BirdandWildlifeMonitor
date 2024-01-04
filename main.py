@@ -1,7 +1,7 @@
 import tensorflow as tf
 import numpy as np
 
-TF_MODEL_FILE_PATH = 'TfliteModels\model.tflite'
+TF_MODEL_FILE_PATH = 'TfliteModels\modelV2.tflite'
 
 interpreter = tf.lite.Interpreter(model_path=TF_MODEL_FILE_PATH)
 

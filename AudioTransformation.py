@@ -45,6 +45,5 @@ def convert_to_wav(PathName, BatchName):
 
         i += 1
 
-convert_to_wav('Audio/CommonStarlingMB', 'Audio/CommonStarlingMB/CommonStarling')
 
-BatchConvert('Audio/CommonStarlingMB', 'Data/CommonStarling/CommonStarling')
+BatchConvert('Audio/RedwingMB', 'Data/Redwing/Redwing')
