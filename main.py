@@ -1,7 +1,7 @@
 import tensorflow as tf
 import numpy as np
 
-TF_MODEL_FILE_PATH = 'TfliteModels\modelV2.tflite'
+TF_MODEL_FILE_PATH = 'TfliteModels\model_test_V1.tflite'
 
 interpreter = tf.lite.Interpreter(model_path=TF_MODEL_FILE_PATH)
 
@@ -9,7 +9,7 @@ print(interpreter.get_signature_list())
 
 classify_lite = interpreter.get_signature_runner('serving_default')
 
-Input = 'output.png'
+Input = 'PredictiveData\CommonWoodpigeon-1.jpeg'
 
 
 img = tf.keras.utils.load_img(
