@@ -1,7 +1,6 @@
 import ML_Model
 import ML_Model_Test
 
-# all relu model
 
 BC = ML_Model_Test.BirdClassifier_Test('Data', 200, 200, 32)
 
@@ -17,4 +16,4 @@ BC.TrainModel(400, 'adam')
 
 BC.PlotResults('relureluAdamV2.png')
 
-BC.SaveModel('model_test_V1.tflite')
+BC.SaveModel('Largemodel_V1.tflite')

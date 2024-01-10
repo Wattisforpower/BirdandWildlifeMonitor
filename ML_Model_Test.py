@@ -82,6 +82,11 @@ class BirdClassifier_Test:
             tf.keras.layers.Dense(self.Num_Classes) 
         ])
     
+    def Model_MultiLayerPerceptron(self):
+        self.BirdClassifierModel = tf.keras.Sequential([
+            
+        ])
+    
     def TrainModel(self, Epochs, Optimizer):
         self.Epochs = Epochs
 

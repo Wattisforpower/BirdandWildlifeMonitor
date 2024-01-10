@@ -1,10 +1,12 @@
 import matplotlib.pyplot as plt
 import pathlib
 
+import os
+
 #for loading and visualizing audio files
 import librosa
 import librosa.display
-from pydub import AudioSegment
+import soundfile as sf
 
 def Convert(item, savename):
     x, sr = librosa.load(item, sr = 48000)
@@ -31,19 +33,51 @@ def BatchConvert(path, DefineBatchName):
 
         i += 1
 
-def convert_to_wav(PathName, BatchName):
-    Path = pathlib.Path(PathName).with_suffix('')
+def Split_Audio(Max_Length, file, savename):
+    try:
+        # Calculate Maximum split amount
+        audio, sr = librosa.load(file, sr = 48000)
 
-    ListOfValues = list(Path.glob('*.m4a'))
+        Total_Samples = len(audio)
+        buffer = Max_Length * sr
+        Samples_Wrote = 0
+        counter = 1
+
+        while Samples_Wrote < Total_Samples:
+            # generate buffer
+            if buffer > (Total_Samples - Samples_Wrote) : buffer = Total_Samples - Samples_Wrote
+
+            # create audio block
+            block = audio[Samples_Wrote : (Samples_Wrote + buffer)]
+
+            # create filename
+            outfile = savename + "_split_" + str(counter) + ".wav"
+
+            #write audio
+            sf.write(outfile, block, sr)
+
+            # update system
+            counter += 1
+            Samples_Wrote += buffer
+
+            
+
+    except Exception as e:
+        print(f'Error Processing File: {e}')
+
+def Batch_split(path, BatchName):
+    Path = pathlib.Path(path).with_suffix('')
+
+    ListOfValues = list(Path.glob('*.wav'))
 
     i = 1
+
     for item in ListOfValues:
         GenName = BatchName + str(i)
-        sound = AudioSegment.from_file(item, format='m4a')
 
-        file_Handle = sound.export(GenName, format='wav')
+        Split_Audio(10, item, GenName)
 
         i += 1
 
-
-BatchConvert('Audio/RedwingMB', 'Data/Redwing/Redwing')
+Batch_split("Audio/RedwingMB", "Audio/RedwingMB/SplitData/Redwing")
+BatchConvert("Audio/RedwingMB/SplitData", "Data/Redwing/Redwing_Split")
