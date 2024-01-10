@@ -84,6 +84,16 @@ class BirdClassifier_Test:
     
     def Model_MultiLayerPerceptron(self):
         self.BirdClassifierModel = tf.keras.Sequential([
+            self.Data_Augmentation,
+            tf.keras.layers.Rescaling(1./255, input_shape=(self.Image_Height, self.Image_Width, 3)),
+            tf.keras.layers.Flatten(input_shape = (32, 32)),
+
+            tf.keras.layers.Dense(64, activation = 'relu'),
+            tf.keras.layers.Dense(128, activation = 'relu'),
+            tf.keras.layers.Dense(256, activation = 'relu'),
+            tf.keras.layers.Dense(128, activation = 'relu'),
+            tf.keras.layers.Dense(10, activation = 'relu'),
+            tf.keras.layers.BatchNormalization()
             
         ])
     

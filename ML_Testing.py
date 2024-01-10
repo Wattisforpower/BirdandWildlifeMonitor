@@ -11,9 +11,10 @@ BC.ConfigureDataset()
 BC.AugmentData('horizontal', 0.1, 0.1)
 
 BC.Model('relu', 'relu', 'same', 0.2)
+#BC.Model_MultiLayerPerceptron()
 
 BC.TrainModel(400, 'adam')
 
 BC.PlotResults('relureluAdamV2.png')
 
-BC.SaveModel('Largemodel_V1.tflite')
+BC.SaveModel('MLP_V1.tflite')
