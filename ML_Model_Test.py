@@ -39,6 +39,12 @@ class BirdClassifier_Test:
 
         self.classNames = self.train_dataset.class_names
         self.Num_Classes = len(self.classNames)
+    
+    def printclassnames(self):
+        print(self.classNames)
+
+    def ClassNames(self):
+        return self.train_dataset.class_names
 
     def ConfigureDataset(self):
         self.Autotune = tf.data.AUTOTUNE
@@ -58,22 +64,24 @@ class BirdClassifier_Test:
             ]
         )
 
-    def Model(self, InternalActivation, activation, Padding, DropOutValue):
+    def Model(self, InternalActivation, activation, Padding, InternalDropOutValue, DropOutValue):
         self.BirdClassifierModel = tf.keras.Sequential([
             self.Data_Augmentation,
             tf.keras.layers.Rescaling(1./255, input_shape=(self.Image_Height, self.Image_Width, 3)),
 
             tf.keras.layers.Conv2D(16, 3, padding=Padding, activation=InternalActivation),
-            tf.keras.layers.MaxPooling2D(),
             tf.keras.layers.BatchNormalization(),
+            tf.keras.layers.MaxPooling2D(),
+            tf.keras.layers.Dropout(InternalDropOutValue),
 
             tf.keras.layers.Conv2D(32, 3, padding=Padding, activation=InternalActivation),
-            tf.keras.layers.MaxPooling2D(),
             tf.keras.layers.BatchNormalization(),
+            tf.keras.layers.MaxPooling2D(),
+            tf.keras.layers.Dropout(InternalDropOutValue),
 
             tf.keras.layers.Conv2D(64, 3, padding=Padding, activation=InternalActivation),
-            tf.keras.layers.MaxPooling2D(),
             tf.keras.layers.BatchNormalization(),
+            tf.keras.layers.MaxPooling2D(),
 
             tf.keras.layers.Dropout(DropOutValue),
             tf.keras.layers.Flatten(),
