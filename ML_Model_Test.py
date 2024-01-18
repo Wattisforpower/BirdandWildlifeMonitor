@@ -37,14 +37,9 @@ class BirdClassifier_Test:
             batch_size=self.BatchSize
         )
 
-        self.classNames = self.train_dataset.class_names
-        self.Num_Classes = len(self.classNames)
-    
-    def printclassnames(self):
-        print(self.classNames)
-
-    def ClassNames(self):
-        return self.train_dataset.class_names
+        self.classNames_training = self.train_dataset.class_names
+        self.classNames_Validate = self.Validation_Dataset.class_names
+        self.Num_Classes = len(self.classNames_training)
 
     def ConfigureDataset(self):
         self.Autotune = tf.data.AUTOTUNE
@@ -79,14 +74,31 @@ class BirdClassifier_Test:
             tf.keras.layers.MaxPooling2D(),
             tf.keras.layers.Dropout(InternalDropOutValue),
 
+            # Added layers
+
             tf.keras.layers.Conv2D(64, 3, padding=Padding, activation=InternalActivation),
             tf.keras.layers.BatchNormalization(),
             tf.keras.layers.MaxPooling2D(),
 
+            tf.keras.layers.Conv2D(64, 3, padding=Padding, activation=InternalActivation),
+            tf.keras.layers.BatchNormalization(),
+            tf.keras.layers.MaxPooling2D(),
+
+            tf.keras.layers.Conv2D(64, 3, padding=Padding, activation=InternalActivation),
+            tf.keras.layers.BatchNormalization(),
+            tf.keras.layers.MaxPooling2D(),
+
+            tf.keras.layers.Conv2D(128, 3, padding=Padding, activation=InternalActivation),
+            tf.keras.layers.BatchNormalization(),
+            tf.keras.layers.MaxPooling2D(),
+
+            # End of added layers
+
             tf.keras.layers.Dropout(DropOutValue),
             tf.keras.layers.Flatten(),
 
-            tf.keras.layers.Dense(128, activation= activation),
+            tf.keras.layers.Dense(128, activation = activation),
+            tf.keras.layers.Dense(64, activation = activation),
             tf.keras.layers.Dense(self.Num_Classes) 
         ])
     
@@ -105,7 +117,7 @@ class BirdClassifier_Test:
             
         ])
     
-    def TrainModel(self, Epochs, Optimizer):
+    def TrainModel(self, Epochs, steps, Optimizer):
         self.Epochs = Epochs
 
         self.BirdClassifierModel.compile(
@@ -117,9 +129,11 @@ class BirdClassifier_Test:
         self.BirdClassifierModel.summary()
 
         self.History = self.BirdClassifierModel.fit(
-            self.train_dataset,
-            validation_data = self.Validation_Dataset,
-            epochs = Epochs
+            self.train_dataset.repeat(),
+            validation_data = self.Validation_Dataset.repeat(),
+            steps_per_epoch = steps,
+            validation_steps = int(steps/5),
+            epochs = Epochs,
         )
     
     def PlotResults(self, SaveName):
