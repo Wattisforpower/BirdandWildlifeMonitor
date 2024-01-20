@@ -67,18 +67,14 @@ class BirdClassifier_Test:
             tf.keras.layers.Conv2D(16, 3, padding=Padding, activation=InternalActivation),
             tf.keras.layers.BatchNormalization(),
             tf.keras.layers.MaxPooling2D(),
-            tf.keras.layers.Dropout(InternalDropOutValue),
+            #tf.keras.layers.Dropout(InternalDropOutValue),
 
             tf.keras.layers.Conv2D(32, 3, padding=Padding, activation=InternalActivation),
             tf.keras.layers.BatchNormalization(),
             tf.keras.layers.MaxPooling2D(),
-            tf.keras.layers.Dropout(InternalDropOutValue),
+            #tf.keras.layers.Dropout(InternalDropOutValue),
 
-            # Added layers
-
-            tf.keras.layers.Conv2D(64, 3, padding=Padding, activation=InternalActivation),
-            tf.keras.layers.BatchNormalization(),
-            tf.keras.layers.MaxPooling2D(),
+            # Added Conv2D layers
 
             tf.keras.layers.Conv2D(64, 3, padding=Padding, activation=InternalActivation),
             tf.keras.layers.BatchNormalization(),
@@ -92,12 +88,24 @@ class BirdClassifier_Test:
             tf.keras.layers.BatchNormalization(),
             tf.keras.layers.MaxPooling2D(),
 
-            # End of added layers
+            # End of Added Conv2D layers
 
             tf.keras.layers.Dropout(DropOutValue),
             tf.keras.layers.Flatten(),
 
+            # Added Dense Layers
+
             tf.keras.layers.Dense(128, activation = activation),
+            tf.keras.layers.Dropout(InternalDropOutValue),
+            tf.keras.layers.Dense(256, activation = activation),
+            tf.keras.layers.Dropout(InternalDropOutValue),
+            tf.keras.layers.Dense(512, activation = activation),
+            tf.keras.layers.Dropout(InternalDropOutValue),
+            
+            # End of Added Dense layers
+
+            tf.keras.layers.Dense(128, activation = activation),
+            tf.keras.layers.Dropout(InternalDropOutValue),
             tf.keras.layers.Dense(64, activation = activation),
             tf.keras.layers.Dense(self.Num_Classes) 
         ])
@@ -117,7 +125,7 @@ class BirdClassifier_Test:
             
         ])
     
-    def TrainModel(self, Epochs, steps, Optimizer):
+    def TrainModel(self, Epochs, Optimizer):
         self.Epochs = Epochs
 
         self.BirdClassifierModel.compile(
@@ -129,11 +137,9 @@ class BirdClassifier_Test:
         self.BirdClassifierModel.summary()
 
         self.History = self.BirdClassifierModel.fit(
-            self.train_dataset.repeat(),
-            validation_data = self.Validation_Dataset.repeat(),
-            steps_per_epoch = steps,
-            validation_steps = int(steps/5),
-            epochs = Epochs,
+            self.train_dataset,
+            validation_data = self.Validation_Dataset,
+            epochs = Epochs
         )
     
     def PlotResults(self, SaveName):

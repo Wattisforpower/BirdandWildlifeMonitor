@@ -8,14 +8,14 @@ BC.LoadinImages(0.2)
 
 BC.ConfigureDataset()
 
-BC.AugmentData('horizontal', 0.1, 0.1)
+BC.AugmentData('horizontal', 0.4, 0.3)
 
 BC.Model('elu', 'elu', 'same', 0.25, 0.5)
 #BC.Model_MultiLayerPerceptron()
 
 
-BC.TrainModel(10, 20, 'adam')
+BC.TrainModel(200, 'adam')
 
-BC.PlotResults('regularizationCNNV6.png')
+BC.PlotResults('CNNV7.png')
 
-BC.SaveModel('CNN_ELU_V6.tflite')
+BC.SaveModel('CNN_ELU_V7.tflite')
