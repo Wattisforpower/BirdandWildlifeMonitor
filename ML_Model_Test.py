@@ -3,8 +3,6 @@ import numpy as np
 import PIL
 import tensorflow as tf
 
-from tensorflow import keras
-
 import pathlib
 
 class BirdClassifier_Test:
@@ -59,7 +57,7 @@ class BirdClassifier_Test:
             ]
         )
 
-    def Model(self, InternalActivation, activation, Padding, InternalDropOutValue, DropOutValue):
+    def Model(self, InternalActivation, activation, Padding, InternalDropOutValue):
         self.BirdClassifierModel = tf.keras.Sequential([
             self.Data_Augmentation,
             tf.keras.layers.Rescaling(1./255, input_shape=(self.Image_Height, self.Image_Width, 3)),
@@ -90,7 +88,7 @@ class BirdClassifier_Test:
 
             # End of Added Conv2D layers
 
-            tf.keras.layers.Dropout(DropOutValue),
+            tf.keras.layers.Dropout(InternalDropOutValue),
             tf.keras.layers.Flatten(),
 
             # Added Dense Layers
@@ -107,6 +105,7 @@ class BirdClassifier_Test:
             tf.keras.layers.Dense(128, activation = activation),
             tf.keras.layers.Dropout(InternalDropOutValue),
             tf.keras.layers.Dense(64, activation = activation),
+            tf.keras.layers.Dropout(InternalDropOutValue),
             tf.keras.layers.Dense(self.Num_Classes) 
         ])
     
@@ -125,12 +124,13 @@ class BirdClassifier_Test:
             
         ])
     
+    
     def TrainModel(self, Epochs, Optimizer):
         self.Epochs = Epochs
 
         self.BirdClassifierModel.compile(
             optimizer = Optimizer,
-            loss = tf.keras.losses.SparseCategoricalCrossentropy(from_logits = True),
+            loss = 'sparse_categorical_crossentropy', #tf.keras.losses.SparseCategoricalCrossentropy(from_logits = True),
             metrics = ['accuracy']
         )
 

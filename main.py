@@ -1,7 +1,7 @@
 import tensorflow as tf
 import numpy as np
 
-TF_MODEL_FILE_PATH = 'TfliteModels/CNN_ELU_V3.tflite'
+TF_MODEL_FILE_PATH = 'TfliteModels/CNN_ELU_V6.tflite'
 
 interpreter = tf.lite.Interpreter(model_path=TF_MODEL_FILE_PATH)
 
