@@ -1,8 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import PIL
 import tensorflow as tf
-from sklearn.model_selection import train_test_split
 
 import pathlib
 
@@ -40,8 +38,6 @@ class BirdClassifier_Test:
         self.classNames_Validate = self.Validation_Dataset.class_names
         self.Num_Classes = len(self.classNames_training)
 
-        self.X_Train, X_test = train_test_split(self.train_dataset, test_size= 0.2)
-
     def ConfigureDataset(self):
         self.Autotune = tf.data.AUTOTUNE
 
@@ -68,27 +64,29 @@ class BirdClassifier_Test:
             tf.keras.layers.Conv2D(16, 3, padding=Padding, activation=InternalActivation),
             tf.keras.layers.BatchNormalization(),
             tf.keras.layers.MaxPooling2D(),
-            #tf.keras.layers.Dropout(InternalDropOutValue),
+            tf.keras.layers.Dropout(InternalDropOutValue),
 
             tf.keras.layers.Conv2D(32, 3, padding=Padding, activation=InternalActivation),
             tf.keras.layers.BatchNormalization(),
             tf.keras.layers.MaxPooling2D(),
-            #tf.keras.layers.Dropout(InternalDropOutValue),
+            tf.keras.layers.Dropout(InternalDropOutValue),
 
             # Added Conv2D layers
 
             tf.keras.layers.Conv2D(64, 3, padding=Padding, activation=InternalActivation),
             tf.keras.layers.BatchNormalization(),
             tf.keras.layers.MaxPooling2D(),
-
-
-            tf.keras.layers.Conv2D(64, 3, padding=Padding, activation=InternalActivation),
-            tf.keras.layers.BatchNormalization(),
-            tf.keras.layers.MaxPooling2D(),
+            tf.keras.layers.Dropout(InternalDropOutValue),
 
             tf.keras.layers.Conv2D(64, 3, padding=Padding, activation=InternalActivation),
             tf.keras.layers.BatchNormalization(),
             tf.keras.layers.MaxPooling2D(),
+            tf.keras.layers.Dropout(InternalDropOutValue),
+
+            tf.keras.layers.Conv2D(64, 3, padding=Padding, activation=InternalActivation),
+            tf.keras.layers.BatchNormalization(),
+            tf.keras.layers.MaxPooling2D(),
+            tf.keras.layers.Dropout(InternalDropOutValue),
 
             tf.keras.layers.Conv2D(128, 3, padding=Padding, activation=InternalActivation),
             tf.keras.layers.BatchNormalization(),

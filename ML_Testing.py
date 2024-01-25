@@ -15,6 +15,6 @@ BC.Model('elu', 'elu', 'same', 0.25)
 
 BC.TrainModel(400, 'adam')
 
-BC.PlotResults('CNN_V8.png')
+BC.PlotResults('CNN_V9.png')
 
-BC.SaveModel('CNN_ELU_V8.tflite')
+BC.SaveModel('CNN_ELU_V9.tflite')

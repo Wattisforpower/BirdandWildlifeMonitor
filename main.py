@@ -1,6 +1,7 @@
 import tensorflow as tf
 import numpy as np
 
+
 TF_MODEL_FILE_PATH = 'TfliteModels/CNN_ELU_V3.tflite'
 
 interpreter = tf.lite.Interpreter(model_path=TF_MODEL_FILE_PATH)
@@ -13,7 +14,8 @@ Input = 'PredictiveData/Icelandic_Redwing-1.jpeg'
 
 
 img = tf.keras.utils.load_img(
-    Input, target_size=(200, 200)
+    Input, 
+    target_size=(200, 200)
 )
 
 img_array = tf.keras.utils.img_to_array(img)
