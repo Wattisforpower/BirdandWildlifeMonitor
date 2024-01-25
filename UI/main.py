@@ -23,7 +23,7 @@ frame = tk.Frame(Overview, width = 600, height= 400)
 frame.pack()
 frame.place(anchor='center', relx=0.5, rely=0.5)
 
-img = ImageTk.PhotoImage(Image.open("Images/Barn_Swallow.jpg"))
+img = ImageTk.PhotoImage(Image.open("UI/Images/Barn_Swallow.jpg"))
 
 label = tk.Label(frame, image = img)
 label.pack()
