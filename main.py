@@ -1,7 +1,8 @@
 import tensorflow as tf
 import numpy as np
+import ML_Model_Test
 
-TF_MODEL_FILE_PATH = 'TfliteModels/CNN_ELU_V3.tflite'
+TF_MODEL_FILE_PATH = 'TfliteModels/CNN_ELU_V1.tflite'
 
 interpreter = tf.lite.Interpreter(model_path=TF_MODEL_FILE_PATH)
 
@@ -38,4 +39,3 @@ print(
     "This image most likely belongs to {} with a {:.2f} percent confidence."
     .format(class_names[np.argmax(score_lite)], 100 * np.max(score_lite))
 )
-
