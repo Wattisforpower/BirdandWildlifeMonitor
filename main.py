@@ -1,6 +1,6 @@
 import tensorflow as tf
 import numpy as np
-
+import PIL
 
 TF_MODEL_FILE_PATH = 'TfliteModels/CNN_ELU_V3.tflite'
 
