@@ -1,3 +1,15 @@
+import Buffer_Toolbox
+
+Buff = Buffer_Toolbox.Buffer(520, 20, 1)
+
+Data = Buff.RandomDataGenerator()
+
+Buff.BufferLoad(Data)
+Buff.BufferLoad(Data)
+
+Buff.ConverttoSpectograph()
+
+'''
 import tensorflow as tf
 import numpy as np
 import PIL
@@ -41,3 +53,4 @@ print(
     .format(class_names[np.argmax(score_lite)], 100 * np.max(score_lite))
 )
 
+'''
