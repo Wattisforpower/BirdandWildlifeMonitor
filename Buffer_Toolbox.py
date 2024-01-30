@@ -8,6 +8,7 @@ class Buffer:
     def __init__(self, buffersize, timeframe, samplerate) -> None:
         self.MaxSize = buffersize * timeframe * samplerate
         self.samplerate = samplerate
+        self.timeframe = timeframe
         self.BuffOne = np.empty(0)
         self.BuffTwo = np.empty(0)
         self.LoadingBuffer = np.empty(0)
@@ -21,18 +22,24 @@ class Buffer:
     def __BufferOffload(self):
         self.LoadingBuffer = self.BuffTwo
 
-    def ConverttoSpectograph(self):
-        self.__BufferOffload()
+    def __LoadAudio(self, audiopath):
+        self.LoadingBuffer, sr = librosa.load(audiopath, sr = 20000)
+
+
+    def ConverttoData(self, Pin_Audio = True, audiopath = ''):
+        
+        if Pin_Audio:
+            self.__BufferOffload()
+        else:
+            self.__LoadAudio(audiopath= audiopath)
 
         X_STFT = librosa.stft(self.LoadingBuffer)
 
         X_db = librosa.amplitude_to_db(np.abs(X_STFT))
 
-        plt.figure(figsize=(120, 10))
-        librosa.display.specshow(X_db, sr = self.samplerate, x_axis = 'time', y_axis = 'hz', shading = 'auto')
-        plt.axis('off')
-        plt.show()
+        return X_db.flatten()
 
+        
     def RandomDataGenerator(self):
         TempData = np.empty(0)
         for x in range(0, self.MaxSize):
@@ -40,5 +47,3 @@ class Buffer:
             TempData = np.append(TempData, y)
         
         return TempData
-    
-    def SineWave(self)

@@ -118,11 +118,11 @@ class BirdClassifier_Test:
         ])
     
     
-    def TrainModel(self, Epochs, Optimizer):
+    def TrainModel(self, Epochs, Optimizer, learningrate):
         self.Epochs = Epochs
-
+        Optimizer_test = tf.keras.optimizers.Adam(lr= learningrate)
         self.BirdClassifierModel.compile(
-            optimizer = Optimizer,
+            optimizer = Optimizer_test,
             loss = tf.keras.losses.SparseCategoricalCrossentropy(from_logits = True),
             metrics = ['accuracy']
         )

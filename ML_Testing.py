@@ -13,8 +13,8 @@ BC.Model('elu', 'elu', 'same', 0.25)
 #BC.Model_MultiLayerPerceptron()
 
 
-BC.TrainModel(400, 'adam')
+BC.TrainModel(400, 'adam', 0.001)
 
-BC.PlotResults('CNN_V9.png')
+BC.PlotResults('CNN_LearningRateChange_V10.png')
 
-BC.SaveModel('CNN_ELU_V9.tflite')
+BC.SaveModel('CNN_ELU_V10.tflite')

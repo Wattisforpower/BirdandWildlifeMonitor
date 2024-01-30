@@ -1,5 +1,14 @@
 import Buffer_Toolbox
+import Neural_Network_Toolbox
 
+NN = Neural_Network_Toolbox.Neural_Networks()
+
+NN.PrepData()
+
+NN.RunPreprocessing()
+
+
+'''
 Buff = Buffer_Toolbox.Buffer(520, 20, 1)
 
 Data = Buff.RandomDataGenerator()
@@ -7,7 +16,8 @@ Data = Buff.RandomDataGenerator()
 Buff.BufferLoad(Data)
 Buff.BufferLoad(Data)
 
-Buff.ConverttoSpectograph()
+Buff.ConverttoData(False, 'Audio/BarnswallowMB/BarnSwallow.wav')
+'''
 
 '''
 import tensorflow as tf
@@ -22,7 +32,7 @@ print(interpreter.get_signature_list())
 
 classify_lite = interpreter.get_signature_runner('serving_default')
 
-Input = 'PredictiveData/Icelandic_Redwing-1.jpeg'
+Input = 'unclassified_image.jpeg'
 
 
 img = tf.keras.utils.load_img(
@@ -52,5 +62,4 @@ print(
     "This image most likely belongs to {} with a {:.2f} percent confidence."
     .format(class_names[np.argmax(score_lite)], 100 * np.max(score_lite))
 )
-
 '''
