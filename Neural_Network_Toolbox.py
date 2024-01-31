@@ -75,23 +75,35 @@ class Neural_Networks:
     def __Preprocessing(self) -> None:
         # Load the Data
 
-        df = pd.read_csv('dataset.csv', low_memory = False, skiprows = 1)
+        df = pd.read_csv('dataset2.csv', low_memory = False)
 
         df = df.T
 
-        class_names = df.pop(400775)
-        self.classes = df.pop(400774)
-        
-        print(df.dtypes)
+        print(df.head())
 
-        names = list(i for i in range(0, 400773))
+        class_names = df.pop(400776)
+        
+        d = dict.fromkeys(df.select_dtypes(object).columns, np.float32)
+        df = df.astype(d)
+
+        self.classes = df.pop(400775)
+
+        names = list(i for i in range(0, 400774))
         numeric_values = df[names]
         self.numeric_tensors = tf.convert_to_tensor(numeric_values)
         self.class_tensors = tf.convert_to_tensor(self.classes)
 
-        #self.numeric_dataset = tf.data.Dataset.from_tensor_slices((self.numeric_tensors, self.class_tensors))
+        # Normalize the data
+        self.normalization_layer = tf.keras.layers.Normalization(axis = -1)
+        self.normalization_layer.adapt(self.numeric_tensors)
 
-        #self.numeric_batches = self.numeric_dataset.shuffle(10).batch(32)
+
+        # Batch the data
+
+        self.numeric_dataset = tf.data.Dataset.from_tensor_slices((self.numeric_tensors, self.class_tensors))
+
+        self.numeric_batches = self.numeric_dataset.shuffle(10).batch(32)
+
         
 
     def RunPreprocessing(self) -> None:
@@ -99,61 +111,85 @@ class Neural_Networks:
 
     def __DevelopedModel(self):
         model = tf.keras.Sequential([
-            tf.keras.layers.Dense(4, input_shape = (400773,), activation = tf.nn.elu),
+            self.normalization_layer,
+            tf.keras.layers.Dense(4, input_shape = (400774,), activation = tf.nn.elu),
             tf.keras.layers.Dense(16, activation = tf.nn.elu),
             tf.keras.layers.Dense(128, activation = tf.nn.elu),
             tf.keras.layers.Dense(256, activation = tf.nn.elu),
+            tf.keras.layers.Dropout(0.3),
+
             tf.keras.layers.Dense(128, activation = tf.nn.elu),
+            tf.keras.layers.Dense(128, activation = tf.nn.elu),
+            tf.keras.layers.Dense(256, activation = tf.nn.elu),
+            tf.keras.layers.Dropout(0.3),
+
+            tf.keras.layers.Dense(128, activation = tf.nn.elu),
+            tf.keras.layers.Dense(128, activation = tf.nn.elu),
+            tf.keras.layers.Dense(256, activation = tf.nn.elu),
+            tf.keras.layers.Dropout(0.3),
+
+            tf.keras.layers.Dense(128, activation = tf.nn.elu),
+            tf.keras.layers.Dense(128, activation = tf.nn.elu),
+            tf.keras.layers.Dense(256, activation = tf.nn.elu),
+            tf.keras.layers.Dense(128, activation = tf.nn.elu),
+            tf.keras.layers.Dropout(0.3),
                                   
-            tf.keras.layers.Dense(10, activation = tf.nn.softmax)
+            tf.keras.layers.Dense(11, activation = tf.nn.softmax)
         ])
 
         return model
     
     def __Train(self) -> None:
-        self.epochs = 100
+        self.epochs = 20
         self.Optimizer = tf.keras.optimizers.Adam()
 
-        Model = self.__DevelopedModel()      
+        self.Model = self.__DevelopedModel()      
         
-        Model.compile(
+        self.Model.compile(
             optimizer = self.Optimizer,
             loss = tf.keras.losses.SparseCategoricalCrossentropy(from_logits = True),
             metrics = ['accuracy']
         )
 
-        Model.summary()
+        self.Model.summary()
 
-        self.History = Model.fit(
-            self.numeric_tensors,
-            self.class_tensors,
+        self.History = self.Model.fit(
+            self.numeric_batches.repeat(),
+            steps_per_epoch = 100,
             epochs = self.epochs
         )
     
-    def __PlotResults(self, SaveName):
+    def __PlotResults(self):
         acc = self.History.history['accuracy']
-        val_acc = self.History.history['val_accuracy']
+        #val_acc = self.History.history['val_accuracy']
 
         loss = self.History.history['loss']
-        val_loss = self.History.history['val_loss']
+        #val_loss = self.History.history['val_loss']
 
-        epochs_range = range(self.Epochs)
+        epochs_range = range(self.epochs)
 
         plt.figure(figsize=(8, 8))
         plt.subplot(1, 2, 1)
         plt.plot(epochs_range, acc, label='Training Accuracy')
-        plt.plot(epochs_range, val_acc, label='Validation Accuracy')
+        #plt.plot(epochs_range, val_acc, label='Validation Accuracy')
         plt.legend(loc='lower right')
         plt.title('Training and Validation Accuracy')
 
         plt.subplot(1, 2, 2)
         plt.plot(epochs_range, loss, label='Training Loss')
-        plt.plot(epochs_range, val_loss, label='Validation Loss')
+        #plt.plot(epochs_range, val_loss, label='Validation Loss')
         plt.legend(loc='upper right')
         plt.title('Training and Validation Loss')
-        plt.savefig(SaveName)
+        plt.savefig('FIGURE.png')
         plt.show()
 
+
+    def SaveModel(self, ModelName):
+        converter = tf.lite.TFLiteConverter.from_keras_model(self.Model)
+        tflite_model = converter.convert()
+
+        with open(ModelName, 'wb') as f:
+            f.write(tflite_model)
 
     def run(self):
         self.__Preprocessing()
