@@ -1,8 +1,6 @@
-import Predictor_Toolbox as PT
-import Neural_Network_Toolbox as NNT
+from Toolboxes import Predictor_Toolbox as PT
+
+system = PT.RunPredictor()
 
 
-System = PT.RunPredictor()
 
-
-System.ShowPlotsOfData()

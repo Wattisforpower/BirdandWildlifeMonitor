@@ -1,11 +1,13 @@
 import numpy as np
-import Buffer_Toolbox as BT
+from Toolboxes import Buffer_Toolbox as BT
 import tensorflow as tf
 import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn import metrics
 import pathlib
 import os
+import pygad.kerasga
+import pygad
 
 
 class Neural_Networks:
@@ -183,6 +185,64 @@ class Neural_Networks:
         plt.title('Training and Validation Loss')
         plt.savefig('FIGURE.png')
         plt.show()
+        
+    def fitness_func(self, ga_instance, solution, sol_idx):
+        model = self.__DevelopedModel()
+
+        model_weights_matrix = pygad.kerasga.model_weights_as_matrix(model=model, weights_vector=solution)
+        model.set_weights(weights=model_weights_matrix)
+
+        predictions = model.predict(self.numeric_batches)
+
+        scce = tf.keras.losses.CategoricalCrossentropy()
+        loss = scce(self.Data_Outputs, predictions).numpy()
+
+        fitness_value = 1.0 / loss
+
+        return fitness_value
+
+    def callback_generation(self, ga_instance):
+        print("Generation = {generation}".format(generation=ga_instance.generations_completed))
+        print("Fitness    = {fitness}".format(fitness=ga_instance.best_solution()[1]))
+
+    def GAHead(self):
+        self.__Preprocessing()
+        model = self.__DevelopedModel()
+        self.Data_Outputs = tf.keras.utils.to_categorical(self.classes.to_numpy())
+
+        Keras_ga = pygad.kerasga.KerasGA(model = model, num_solutions = 10)
+
+        initial_population = Keras_ga.population_weights
+
+        num_generations = 10
+        num_parents_mating = 5
+
+        Ga_Instance = pygad.GA(num_generations= num_generations,
+                               num_parents_mating= num_parents_mating,
+                               initial_population= initial_population,
+                               mutation_type= "random",
+                               fitness_func= self.fitness_func,
+                               on_generation= self.callback_generation)
+        
+        Ga_Instance.run()
+        
+        Ga_Instance.plot_result(title="PyGAD & Keras - Iteration vs. Fitness", linewidth=4)
+
+        solution, solution_fitness, solution_idx = Ga_Instance.best_solution()
+
+        print("Fitness value of the best solution = {solution_fitness}".format(solution_fitness))
+        print("Index of the best solution : {solution_idx}".format(solution_idx))
+
+        best_solution_weights = pygad.kerasga.model_weights_as_matrix(model=model, weights_vector=solution)
+        model.set_weights(best_solution_weights)
+        predictions = model.predict(self.numeric_batches)
+        print("Predictions : \n", predictions)
+
+        scce = tf.keras.losses.SparseCategoricalCrossentropy()
+        absolute_loss = scce(self.classes, predictions).numpy()
+
+        print(f"Abosulte Error : {absolute_loss}")
+
 
 
     def SaveModel(self, ModelName):
