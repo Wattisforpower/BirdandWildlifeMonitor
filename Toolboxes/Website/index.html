@@ -1,0 +1,26 @@
+<html lang = "en">
+<head>
+	<meta charset = "utf-8">
+	<title>Bird Monitoring System</title>
+</head>
+
+<script>
+	function UpdateData(){
+		fetch('/home/pi/Documents/GitHub/BirdandWildlifeMonitor/Toolboxes/Website/data.csv')
+		.then(response => response.text())
+		.then(text => {
+			var data = text.split("\n");
+			document.getElementById("dataLabel").innerHTML = data[data.length-2];
+		})
+	}
+	
+	
+</script>
+<body onload="UpdateData()">
+	<div>
+		<h1>Classification Result</h1>
+		<h2 id = "dataLabel">?</h2>
+	</div>
+</body>
+
+</html>

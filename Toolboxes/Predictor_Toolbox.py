@@ -17,7 +17,7 @@ class RunPredictor:
         self.nn = Neural_Network_Toolbox.Neural_Networks()
         self.TF_MODEL_FILE_PATH = 'DNN_V3.1.tflite'
 
-    def runClassifier(self, source):
+    def runClassifier(self, source, IsPin = False):
         # Define the interpreter and the location of the neural network model
         interpreter = tf.lite.Interpreter(model_path=self.TF_MODEL_FILE_PATH)
 
@@ -27,7 +27,7 @@ class RunPredictor:
         classify_lite = interpreter.get_signature_runner('serving_default')
 
         # convert the data into something readable by the neural network
-        Input = self.nn.Buffers.ConverttoData(False, source)
+        Input = self.nn.Buffers.ConverttoData(IsPin, source)
 
         # Run the prediction
         predictions_lite = classify_lite(normalization_input=Input[:-1])['dense_14']
@@ -51,7 +51,7 @@ class RunPredictor:
             .format(self.class_names[np.argmax(score_lite) - 1], 100 * np.max(score_lite))
         )
         
-        return np.argmax(score_lite)
+        return self.class_names[np.argmax(score_lite) - 1], np.argmax(score_lite)
 
     def __convertToClass(self, selection):
         # convert to numeric class
@@ -106,7 +106,7 @@ class RunPredictor:
             actual = np.append(actual, selection_class)
 
             # run the prediction on the selection
-            prediction = self.runClassifier(selection)
+            _, prediction = self.runClassifier(selection)
 
             # add the prediction to the prediction array
             predicted = np.append(predicted, prediction)
