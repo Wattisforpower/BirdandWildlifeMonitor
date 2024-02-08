@@ -124,7 +124,7 @@ class RunPredictor:
         
         # Plot and save the confusion matrix
         cm_display.plot()
-        plt.savefig('Confusion Matrix')
+        plt.savefig('Confusion_Matrix')
         plt.show()
     
     def ShowPlotsOfData(self) -> None:

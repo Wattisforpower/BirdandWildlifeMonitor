@@ -92,8 +92,8 @@ class Neural_Networks:
         self.classes = df.pop(400775)
 
         names = list(i for i in range(0, 400774))
-        numeric_values = df[names]
-        self.numeric_tensors = tf.convert_to_tensor(numeric_values)
+        self.numeric_values = df[names]
+        self.numeric_tensors = tf.convert_to_tensor(self.numeric_values)
         self.class_tensors = tf.convert_to_tensor(self.classes)
 
         # Normalize the data
