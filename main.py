@@ -1,7 +1,8 @@
 from Toolboxes import Predictor_Toolbox as PT
 from Toolboxes import Buffer_Toolbox as BT
 from Toolboxes import Data_Transmission_Toolbox as DTT
-from spidev import SpiDev
+from Toolboxes import Neural_Network_Toolbox as NTT
+#from spidev import SpiDev
 #import wiringpi
 import time
 
@@ -9,21 +10,27 @@ import time
 
 system = PT.RunPredictor()
 Data_Transmit = DTT.TransmissionSystem()
+Network = NTT.Neural_Networks()
 
 
-spi = SpiDev()
+#spi = SpiDev()
 Buffers = BT.Buffer(520, 20, 20000)
 
 # Arbitary Pin Value, Change it later!
 Pin = 6
 
 def main():
-	Result, _ = system.runClassifier('/home/pi/Documents/GitHub/BirdandWildlifeMonitor/Audio/Barnswallow/SplitData/BarnSwallow6_split_1.wav', False)
+	result, _ = system.runClassifier('Audio/Barnswallow/SplitData/BarnSwallow2_split_3.wav')
+
+	print(result)
+
+
+	#Result, _ = system.runClassifier('/home/pi/Documents/GitHub/BirdandWildlifeMonitor/Audio/Barnswallow/SplitData/BarnSwallow6_split_1.wav', False)
 	
-	print(Result)
+	#print(Result)
 	
 	# Send Classification Result to the website
-	Data_Transmit.website(Result)
+	#Data_Transmit.website(Result)
 	
 	'''
 	wiringpi.pinMode(Pin, 0) # Pin 6 Input Pin

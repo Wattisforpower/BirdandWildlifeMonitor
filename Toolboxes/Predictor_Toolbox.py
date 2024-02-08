@@ -16,21 +16,38 @@ class RunPredictor:
     def __init__(self) -> None:
         self.nn = Neural_Network_Toolbox.Neural_Networks()
         self.TF_MODEL_FILE_PATH = 'DNN_V3.1.tflite'
+        self.TF_MODEL_FILE_PATH_COMBINER = 'NeuralCombinerV1.tflite'
+        self.combine = np.empty(0, dtype = np.float32)
 
     def runClassifier(self, source, IsPin = False):
         # Define the interpreter and the location of the neural network model
         interpreter = tf.lite.Interpreter(model_path=self.TF_MODEL_FILE_PATH)
+        combiner_interpreter = tf.lite.Interpreter(model_path=self.TF_MODEL_FILE_PATH_COMBINER)
 
         print(interpreter.get_signature_list())
+        print(combiner_interpreter.get_signature_list())
 
         # Collect the signature of the inputs and outputs of the neural network
         classify_lite = interpreter.get_signature_runner('serving_default')
+        combiner_lite = combiner_interpreter.get_signature_runner('serving_default')
+
 
         # convert the data into something readable by the neural network
         Input = self.nn.Buffers.ConverttoData(IsPin, source)
 
         # Run the prediction
-        predictions_lite = classify_lite(normalization_input=Input[:-1])['dense_14']
+        prediction1_lite = classify_lite(normalization_input=Input[:-1])['dense_14']
+        prediction2_lite = classify_lite(normalization_input=Input[:-1])['dense_14']
+        
+        self.combine = np.append(self.combine, np.argmax(prediction1_lite))
+        self.combine = np.append(self.combine, np.argmax(prediction2_lite))
+
+        combineddata = np.float32(self.combine)
+
+        predictions_lite = combiner_lite(normalization_input=combineddata)['dense_14']
+
+
+
         score_lite = tf.nn.softmax(predictions_lite)
 
         # Class names for the conversion back from numeric classes to string classes
@@ -138,6 +155,51 @@ class RunPredictor:
 
         plt.pie(counts[400775], labels = counts['value'], autopct = '%1.1f%%')
         plt.show()
+    
+    def GenerateDataset3(self) -> None:
+        # Define the actual and predicted as empty numpy arrays
+        actual = np.empty(0)
+        predicted1 = np.empty(0)
+        predicted2 = np.empty(0)
+        df = pd.DataFrame()
+
+        # Collect all of the possible audio options and present them in a list
+        path = pathlib.Path('Audio').with_suffix('')
+        ListOfItems = list(path.glob('*/SplitData/*.wav'))
+        NumberofItems = len(ListOfItems)
+
+        # select 20 of the audio options
+        for i in range(100):
+            # random selection
+            selection_Number = random.randint(0, NumberofItems - 1)
+            selection = ListOfItems[selection_Number]
+
+            # discover the class name based on the folder name
+            filename = os.path.dirname(selection)
+            filename = filename.split('\\')
+
+            # convert to a numeric value
+            selection_class = self.__convertToClass(filename[1])
+
+            # add to actual array
+            actual = np.append(actual, selection_class)
+
+            # run the prediction on the selection
+            _, prediction = self.runClassifier(selection)
+
+            _, prediction1 = self.runClassifier(selection)
+
+            # add the prediction to the prediction array
+            predicted1 = np.append(predicted1, prediction)
+            predicted2 = np.append(predicted2, prediction1)
+        
+        # Create new dataset for training a neural network
+        df['NN1'] = predicted1.tolist()
+        df['NN2'] = predicted2.tolist()
+
+        df['Result'] = actual.tolist()
+
+        df.to_csv('mergedNerualResults.csv', index = False)
  
     def GainData(self) -> None:
         pass

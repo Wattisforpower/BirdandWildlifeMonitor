@@ -107,7 +107,26 @@ class Neural_Networks:
 
         self.numeric_batches = self.numeric_dataset.shuffle(10).batch(32)
 
-        
+    def __NeuralCombinerPreprocessor(self) -> None:
+        df = pd.read_csv('mergedNeuralResults.csv', low_memory = False)
+
+        d = dict.fromkeys(df.select_dtypes(object).columns, np.float32)
+        df = df.astype(d)
+
+        self.classes = df.pop('Result')
+
+        self.numeric_values = df
+        self.numeric_tensors = tf.convert_to_tensor(self.numeric_values)
+        self.class_tensors = tf.convert_to_tensor(self.classes)
+
+        # Normalize the data
+        self.normalization_layer = tf.keras.layers.Normalization()
+        self.normalization_layer.adapt(self.numeric_tensors)
+
+        # batch the data
+        self.numeric_dataset = tf.data.Dataset.from_tensor_slices((self.numeric_tensors, self.class_tensors))
+        self.numeric_batches = self.numeric_dataset.shuffle(10).batch(32)
+
 
     def RunPreprocessing(self) -> None:
         self.__Preprocessing()
@@ -253,6 +272,7 @@ class Neural_Networks:
             f.write(tflite_model)
 
     def run(self):
-        self.__Preprocessing()
+        #self.__Preprocessing()
+        self.__NeuralCombinerPreprocessor()
         self.__Train()
         self.__PlotResults()
