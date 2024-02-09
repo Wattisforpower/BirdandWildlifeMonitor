@@ -120,7 +120,7 @@ class Neural_Networks:
         self.class_tensors = tf.convert_to_tensor(self.classes)
 
         # Normalize the data
-        self.normalization_layer = tf.keras.layers.Normalization()
+        self.normalization_layer = tf.keras.layers.Normalization(axis = -1)
         self.normalization_layer.adapt(self.numeric_tensors)
 
         # batch the data

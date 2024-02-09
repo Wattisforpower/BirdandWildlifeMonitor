@@ -17,9 +17,9 @@ class RunPredictor:
         self.nn = Neural_Network_Toolbox.Neural_Networks()
         self.TF_MODEL_FILE_PATH = 'DNN_V3.1.tflite'
         self.TF_MODEL_FILE_PATH_COMBINER = 'NeuralCombinerV1.tflite'
-        self.combine = np.empty(0, dtype = np.float32)
 
     def runClassifier(self, source, IsPin = False):
+        self.combine = np.empty(0, dtype = np.float32)
         # Define the interpreter and the location of the neural network model
         interpreter = tf.lite.Interpreter(model_path=self.TF_MODEL_FILE_PATH)
         combiner_interpreter = tf.lite.Interpreter(model_path=self.TF_MODEL_FILE_PATH_COMBINER)

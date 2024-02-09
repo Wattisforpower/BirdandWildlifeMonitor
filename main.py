@@ -20,9 +20,7 @@ Buffers = BT.Buffer(520, 20, 20000)
 Pin = 6
 
 def main():
-	result, _ = system.runClassifier('Audio/Barnswallow/SplitData/BarnSwallow2_split_3.wav')
-
-	print(result)
+	system.GenerateConfusion()
 
 
 	#Result, _ = system.runClassifier('/home/pi/Documents/GitHub/BirdandWildlifeMonitor/Audio/Barnswallow/SplitData/BarnSwallow6_split_1.wav', False)
