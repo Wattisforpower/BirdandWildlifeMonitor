@@ -1,26 +1,30 @@
-from Toolboxes import Predictor_Toolbox as PT
-from Toolboxes import Buffer_Toolbox as BT
-from Toolboxes import Data_Transmission_Toolbox as DTT
-from Toolboxes import Neural_Network_Toolbox as NTT
+#from Toolboxes import Predictor_Toolbox as PT
+#from Toolboxes import Buffer_Toolbox as BT
+#from Toolboxes import Data_Transmission_Toolbox as DTT
+#from Toolboxes import Neural_Network_Toolbox as NTT
+from Toolboxes import naivebayes_toolbox as Naive
 #from spidev import SpiDev
 #import wiringpi
-import time
+#import time
+
+NaiveBayes = Naive.NaiveBayes()
 
 #wiringpi.wiringPiSetupSys()
 
-system = PT.RunPredictor()
-Data_Transmit = DTT.TransmissionSystem()
-Network = NTT.Neural_Networks()
+#system = PT.RunPredictor()
+#Data_Transmit = DTT.TransmissionSystem()
+#Network = NTT.Neural_Networks()
 
 
 #spi = SpiDev()
-Buffers = BT.Buffer(520, 20, 20000)
+#Buffers = BT.Buffer(520, 20, 20000)
 
 # Arbitary Pin Value, Change it later!
 Pin = 6
 
 def main():
-	system.GenerateConfusion()
+	NaiveBayes.LoadData('Datasets/dataset2.csv')
+	NaiveBayes.SeperateClasses()
 
 
 	#Result, _ = system.runClassifier('/home/pi/Documents/GitHub/BirdandWildlifeMonitor/Audio/Barnswallow/SplitData/BarnSwallow6_split_1.wav', False)
