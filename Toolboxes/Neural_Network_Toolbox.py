@@ -10,6 +10,7 @@ import pygad.kerasga
 import pygad
 
 
+
 class Neural_Networks:
     def __init__(self) -> None:
         self.Buffers = BT.Buffer(520, 20, 20000)
@@ -165,7 +166,7 @@ class Neural_Networks:
         self.epochs = 20
         self.Optimizer = tf.keras.optimizers.Adam()
 
-        self.Model = self.__DevelopedModel()      
+        self.Model = self.DevelopedModel()      
         
         self.Model.compile(
             optimizer = self.Optimizer,
@@ -272,7 +273,7 @@ class Neural_Networks:
             f.write(tflite_model)
 
     def run(self):
-        #self.__Preprocessing()
-        self.__NeuralCombinerPreprocessor()
+        self.__Preprocessing()
+        #self.__NeuralCombinerPreprocessor()
         self.__Train()
         self.__PlotResults()

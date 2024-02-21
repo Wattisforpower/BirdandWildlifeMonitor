@@ -16,37 +16,27 @@ class RunPredictor:
     def __init__(self) -> None:
         self.nn = Neural_Network_Toolbox.Neural_Networks()
         self.TF_MODEL_FILE_PATH = 'DNN_V3.1.tflite'
-        self.TF_MODEL_FILE_PATH_COMBINER = 'NeuralCombinerV1.tflite'
+        self.MODEL_LOCATION = 'SavedModel/variables'
+        self.loadoptions = tf.saved_model.LoadOptions(experimental_io_device="/job:localhost")
 
     def runClassifier(self, source, IsPin = False):
         self.combine = np.empty(0, dtype = np.float32)
         # Define the interpreter and the location of the neural network model
-        interpreter = tf.lite.Interpreter(model_path=self.TF_MODEL_FILE_PATH)
-        combiner_interpreter = tf.lite.Interpreter(model_path=self.TF_MODEL_FILE_PATH_COMBINER)
+        #interpreter = tf.lite.Interpreter(model_path=self.TF_MODEL_FILE_PATH)
+        #interpreter = tf.saved_model.load(self.MODEL_LOCATION)
+        interpreter = tf.keras.models.load_model('saved_model', options = self.loadoptions)
 
-        print(interpreter.get_signature_list())
-        print(combiner_interpreter.get_signature_list())
+        #print(interpreter.get_signature_list())
 
         # Collect the signature of the inputs and outputs of the neural network
-        classify_lite = interpreter.get_signature_runner('serving_default')
-        combiner_lite = combiner_interpreter.get_signature_runner('serving_default')
-
+        #classify_lite = interpreter.get_signature_runner('serving_default')
+        classify_lite = interpreter.signatures["serving_default"]
 
         # convert the data into something readable by the neural network
-        Input = self.nn.Buffers.ConverttoData(IsPin, source)
+        Input = tf.convert_to_tensor(self.nn.Buffers.ConverttoData(IsPin, source))
 
         # Run the prediction
-        prediction1_lite = classify_lite(normalization_input=Input[:-1])['dense_14']
-        prediction2_lite = classify_lite(normalization_input=Input[:-1])['dense_14']
-        
-        self.combine = np.append(self.combine, np.argmax(prediction1_lite))
-        self.combine = np.append(self.combine, np.argmax(prediction2_lite))
-
-        combineddata = np.float32(self.combine)
-
-        predictions_lite = combiner_lite(normalization_input=combineddata)['dense_14']
-
-
+        predictions_lite = classify_lite(normalization_input=Input[:-1])['dense_14']
 
         score_lite = tf.nn.softmax(predictions_lite)
 
