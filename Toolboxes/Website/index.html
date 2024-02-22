@@ -1,26 +1,81 @@
-<html lang = "en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<meta charset = "utf-8">
-	<title>Bird Monitoring System</title>
-</head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
 
-<script>
-	function UpdateData(){
-		fetch('/home/pi/Documents/GitHub/BirdandWildlifeMonitor/Toolboxes/Website/data.csv')
-		.then(response => response.text())
-		.then(text => {
-			var data = text.split("\n");
-			document.getElementById("dataLabel").innerHTML = data[data.length-2];
-		})
-	}
+	<style>
+		.BirdImage {
+			width: 200px;
+			Height: 200px;
+		}
+	</style>
+
+	<script>
+
+		function DisplayImage(Species){
+			img = document.getElementById("Image")
+			if (Species == "BarnSwallow"){
+				img.src = "Images/BarnSwallow.jpg";
+			}
+			else if (Species == "BlackheadedGull"){
+				img.src = "Images/BlackheadedGull.jpg";
+			}
+			else if (Species == "CommonGuillemot"){
+				img.src = "Images/CommonGuillemot.jpg";
+			}
+			else if (Species == "CommonStarling"){
+				img.src = "Images/CommonStarling.jpg";
+			}
+			else if (Species == "Dunlin"){
+				img.src = "Images/Dunlin.jpg";
+			}
+			else if (Species == "EurasianOysterCatcher"){
+				img.src = "Images/EurasianOysterCatcher.jpg";
+			}
+			else if (Species == "EuropeanGoldenPlover"){
+				img.src = "Images/EuropeanGoldenPlover.jpg";
+			}
+			else if (Species == "HerringGull"){
+				img.src = "Images/HerringGull.jpg";
+			}
+			else if (Species == "NorthernLapwing"){
+				img.src = "Images/NorthernLapwing.jpg";
+			}
+			else if (Species == "Redwing"){
+				img.src = "Images/Redwing.jpg";
+			}
+			else{
+				img.src = "Images/questionmark.jpg";
+			}
+
+		}
+
+		function UpdateData(){
+			fetch('data.csv')
+			.then(response => response.text())
+			.then(text => {
+				var data = text.split("\n");
+				document.getElementById("dataLabel").innerHTML = data[data.length-2];
+				console.log(data[data.length-2]);
+
+				DisplayImage(data[data.length-2]);
+			})
+		}
 	
+	</script>
 	
-</script>
-<body onload="UpdateData()">
+
+</head>
+<body onload = "UpdateData()">
 	<div>
 		<h1>Classification Result</h1>
-		<h2 id = "dataLabel">?</h2>
+		<h2 id = "dataLabel">Unknown</h2>
+	</div>
+	
+	<div>
+		<img src="Images/questionmark.jpg" id = "Image" class = "BirdImage">
 	</div>
 </body>
-
 </html>
