@@ -5,6 +5,7 @@ from scipy import stats
 import numpy as np
 import matplotlib.pyplot as plt
 import librosa
+import random
 
 SR = 20000
 Length = 10
@@ -29,7 +30,7 @@ def SpectralForecast():
 
     MaxAB = np.max([MaxA, MaxB])
 
-    d = 33
+    d = random.randint(0, MaxAB)
 
     for i in range(0, len(LoadingBuffer)):
         temp = ((d / MaxA) * LoadingBuffer[i]) + (((MaxAB - d) / MaxB) * noise[i])
