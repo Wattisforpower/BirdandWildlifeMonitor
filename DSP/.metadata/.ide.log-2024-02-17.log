@@ -1,0 +1,421 @@
+2024-02-22 19:50:06,443 [INFO] I2sManager:658 - 1.97E8
+2024-02-22 19:50:06,460 [INFO] I2sManager:195 - I2S Clock Value : 1.97E8
+2024-02-22 19:50:06,461 [INFO] I2sManager:553 - AudioClock : 48095Divider : 32Odd : 0
+2024-02-22 19:50:07,150 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2024-02-22 19:50:27,456 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2024-02-22 19:50:27,496 [INFO] I2sManager:658 - 1.97E8
+2024-02-22 19:50:27,496 [INFO] I2sManager:195 - I2S Clock Value : 1.97E8
+2024-02-22 19:50:27,497 [INFO] I2sManager:553 - AudioClock : 21986Divider : 70Odd : 0
+2024-02-22 19:50:27,595 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2024-02-22 19:51:01,650 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2024-02-22 19:51:08,614 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2024-02-22 19:51:12,392 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2024-02-22 19:51:20,963 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2024-02-22 19:51:26,677 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2024-02-22 19:52:06,091 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 891444848 Bytes (1073741824)
+2024-02-22 19:52:06,181 [ERROR] ConfigurationRetriever:142 - IOException on connection: sw-center.st.com
+2024-02-22 19:52:06,182 [ERROR] ConfigurationRetriever:142 - IOException on connection: sw-center.st.com
+2024-02-22 19:52:06,182 [ERROR] ConfigurationRetriever:142 - IOException on connection: sw-center.st.com
+2024-02-22 19:52:08,748 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 676421968 Bytes (1073741824)
+2024-02-22 19:52:08,832 [ERROR] ConfigurationRetriever:142 - IOException on connection: sw-center.st.com
+2024-02-22 19:52:08,833 [ERROR] ConfigurationRetriever:142 - IOException on connection: sw-center.st.com
+2024-02-22 19:52:08,833 [ERROR] ConfigurationRetriever:142 - IOException on connection: sw-center.st.com
+2024-02-22 19:52:22,995 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 554961648 Bytes (1073741824)
+2024-02-22 19:52:23,085 [ERROR] ConfigurationRetriever:142 - IOException on connection: sw-center.st.com
+2024-02-22 19:52:23,086 [ERROR] ConfigurationRetriever:142 - IOException on connection: sw-center.st.com
+2024-02-22 19:52:23,086 [ERROR] ConfigurationRetriever:142 - IOException on connection: sw-center.st.com
+2024-02-22 19:52:23,275 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SPI
+2024-02-22 19:52:23,275 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SPI
+2024-02-22 19:52:23,275 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USB_DEVICE
+2024-02-22 19:52:23,275 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: I2S
+2024-02-22 19:52:23,275 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2024-02-22 19:52:23,275 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2024-02-22 19:52:23,275 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USB_OTG_FS
+2024-02-22 19:52:23,275 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2024-02-22 19:52:23,275 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USART
+2024-02-22 19:52:23,275 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: DMA
+2024-02-22 19:52:23,276 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2024-02-22 19:52:23,277 [INFO] CodeGenerator:807 - code generatio: config db path: C:\ST\STM32CubeIDE_1.14.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.10.0.202311202037\\db\
+2024-02-22 19:52:23,285 [INFO] Argument:325 - Argument : hdmavalue: null
+2024-02-22 19:52:23,285 [INFO] Argument:327 - 	 sub Args: 
+2024-02-22 19:52:23,285 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Stream1
+2024-02-22 19:52:23,285 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Stream1
+2024-02-22 19:52:23,285 [INFO] Argument:325 - Argument : Initvalue: null
+2024-02-22 19:52:23,285 [INFO] Argument:327 - 	 sub Args: 
+2024-02-22 19:52:23,285 [INFO] Argument:325 - Argument : Channelvalue: DMA_CHANNEL_9
+2024-02-22 19:52:23,285 [INFO] Argument:335 - Argument : Channelvalue: DMA_CHANNEL_9
+2024-02-22 19:52:23,285 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2024-02-22 19:52:23,285 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2024-02-22 19:52:23,285 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-02-22 19:52:23,285 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-02-22 19:52:23,285 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-02-22 19:52:23,285 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-02-22 19:52:23,285 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_WORD
+2024-02-22 19:52:23,285 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_WORD
+2024-02-22 19:52:23,285 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_WORD
+2024-02-22 19:52:23,285 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_WORD
+2024-02-22 19:52:23,285 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2024-02-22 19:52:23,285 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2024-02-22 19:52:23,285 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_VERY_HIGH
+2024-02-22 19:52:23,285 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_VERY_HIGH
+2024-02-22 19:52:23,285 [INFO] Argument:325 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2024-02-22 19:52:23,285 [INFO] Argument:335 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2024-02-22 19:52:23,286 [INFO] Argument:325 - Argument : FIFOThresholdvalue: null
+2024-02-22 19:52:23,286 [INFO] Argument:335 - Argument : FIFOThresholdvalue: null
+2024-02-22 19:52:23,286 [INFO] Argument:325 - Argument : MemBurstvalue: null
+2024-02-22 19:52:23,286 [INFO] Argument:335 - Argument : MemBurstvalue: null
+2024-02-22 19:52:23,286 [INFO] Argument:325 - Argument : PeriphBurstvalue: null
+2024-02-22 19:52:23,286 [INFO] Argument:335 - Argument : PeriphBurstvalue: null
+2024-02-22 19:52:23,286 [INFO] Argument:325 - Argument : Lockvalue: null
+2024-02-22 19:52:23,286 [INFO] Argument:335 - Argument : Lockvalue: null
+2024-02-22 19:52:23,286 [INFO] Argument:325 - Argument : Statevalue: null
+2024-02-22 19:52:23,286 [INFO] Argument:335 - Argument : Statevalue: null
+2024-02-22 19:52:23,286 [INFO] Argument:325 - Argument : Parentvalue: null
+2024-02-22 19:52:23,286 [INFO] Argument:335 - Argument : Parentvalue: null
+2024-02-22 19:52:23,286 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2024-02-22 19:52:23,286 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2024-02-22 19:52:23,286 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2024-02-22 19:52:23,286 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2024-02-22 19:52:23,286 [INFO] Argument:325 - Argument : XferM1CpltCallbackvalue: null
+2024-02-22 19:52:23,286 [INFO] Argument:335 - Argument : XferM1CpltCallbackvalue: null
+2024-02-22 19:52:23,286 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2024-02-22 19:52:23,286 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2024-02-22 19:52:23,286 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2024-02-22 19:52:23,286 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2024-02-22 19:52:23,318 [WARN] IP:2119 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2024-02-22 19:52:23,318 [WARN] IP:2119 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2024-02-22 19:52:23,318 [WARN] IP:2119 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2024-02-22 19:52:23,500 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\license.tmp_save
+2024-02-22 19:52:23,673 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\license.tmp
+2024-02-22 19:52:23,812 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\gpio.tmp_save
+2024-02-22 19:52:23,950 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\gpio.tmp
+2024-02-22 19:52:24,126 [WARN] IPConfigManager:2946 - Warning: the RefConfig PWREx_EnableUSBVoltageDetector is not available in your config.xml file
+2024-02-22 19:52:24,148 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\usb_otg_fs_vars.tmp_save
+2024-02-22 19:52:24,279 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\usb_otg_fs_vars.tmp
+2024-02-22 19:52:24,298 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\usb_otg_fs_inc.tmp_save
+2024-02-22 19:52:24,521 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\usb_otg_fs_inc.tmp
+2024-02-22 19:52:24,552 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\usb_otg_fs_HalInit.tmp_save
+2024-02-22 19:52:24,674 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\usb_otg_fs_HalInit.tmp
+2024-02-22 19:52:24,691 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\usb_otg_fs_Msp.tmp_save
+2024-02-22 19:52:24,804 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\usb_otg_fs_Msp.tmp
+2024-02-22 19:52:25,501 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-02-22 19:52:25,551 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\cortex.tmp_save
+2024-02-22 19:52:25,709 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\cortex.tmp
+2024-02-22 19:52:25,765 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\dma.tmp_save
+2024-02-22 19:52:25,878 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\dma.tmp
+2024-02-22 19:52:25,891 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\dma_GV.tmp_save
+2024-02-22 19:52:25,955 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\dma_GV.tmp
+2024-02-22 19:52:25,968 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-02-22 19:52:26,009 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\App\usb_device.c_save
+2024-02-22 19:52:26,124 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\App\usb_device.c
+2024-02-22 19:52:26,158 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\App\usb_device.h_save
+2024-02-22 19:52:26,259 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\App\usb_device.h
+2024-02-22 19:52:26,292 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\Target\usbd_conf.h_save
+2024-02-22 19:52:26,402 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\Target\usbd_conf.h
+2024-02-22 19:52:26,436 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\Target\usbd_conf.c_save
+2024-02-22 19:52:26,568 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\Target\usbd_conf.c
+2024-02-22 19:52:26,602 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\App\usbd_desc.h_save
+2024-02-22 19:52:26,695 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\App\usbd_desc.h
+2024-02-22 19:52:26,733 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\App\usbd_desc.c_save
+2024-02-22 19:52:26,889 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\App\usbd_desc.c
+2024-02-22 19:52:26,918 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\App\usbd_cdc_if.h_save
+2024-02-22 19:52:27,010 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\App\usbd_cdc_if.h
+2024-02-22 19:52:27,046 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\App\usbd_cdc_if.c_save
+2024-02-22 19:52:27,201 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\App\usbd_cdc_if.c
+2024-02-22 19:52:27,262 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\Core\Src\stm32f7xx_it.c_save
+2024-02-22 19:52:27,476 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\Core\Src\stm32f7xx_it.c
+2024-02-22 19:52:27,508 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\Core\Inc\stm32f7xx_it.h_save
+2024-02-22 19:52:27,604 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\Core\Inc\stm32f7xx_it.h
+2024-02-22 19:52:27,665 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\Core\Src\stm32f7xx_hal_msp.c_save
+2024-02-22 19:52:27,821 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\Core\Src\stm32f7xx_hal_msp.c
+2024-02-22 19:52:27,838 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\system.tmp_save
+2024-02-22 19:52:27,918 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\system.tmp
+2024-02-22 19:52:27,957 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\Core\Inc\stm32f7xx_hal_conf.h_save
+2024-02-22 19:52:28,106 [INFO] CodeEngine:335 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\Core\Inc\stm32f7xx_hal_conf.h
+2024-02-22 19:52:28,204 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\Core\Inc\main.h_save
+2024-02-22 19:52:28,339 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\Core\Inc\main.h
+2024-02-22 19:52:28,377 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\Core\Src\main.c_save
+2024-02-22 19:52:28,558 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\Core\Src\main.c
+2024-02-22 19:52:29,470 [INFO] ProjectBuilder:3076 - Time for Copy HAL[1] : 347mS.
+2024-02-22 19:52:29,478 [INFO] ProjectBuilder:4485 - Project Generator version: 4.2.0-B44
+2024-02-22 19:52:29,679 [INFO] ConfigFileManager:1495 - The Die is : DIE451
+2024-02-22 19:52:33,079 [INFO] ProjectBuilder:4747 - Time for Generating toolchain IDE Files: 3602mS.
+2024-02-22 19:52:33,080 [INFO] ProjectBuilder:2947 - Time for Copy CMSIS : 1mS.
+2024-02-22 19:52:33,091 [INFO] ProjectBuilder:2947 - Time for Copy CMSIS : 0mS.
+2024-02-22 19:54:21,078 [INFO] I2sManager:658 - 1.97E8
+2024-02-22 19:54:21,078 [INFO] I2sManager:195 - I2S Clock Value : 1.97E8
+2024-02-22 19:54:21,078 [INFO] I2sManager:553 - AudioClock : 21986Divider : 70Odd : 0
+2024-02-22 19:54:28,041 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,485x282,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2024-02-22 19:54:50,555 [INFO] I2sManager:658 - 1.97E8
+2024-02-22 19:54:50,555 [INFO] I2sManager:195 - I2S Clock Value : 1.97E8
+2024-02-22 19:54:50,555 [INFO] I2sManager:553 - AudioClock : 21986Divider : 17Odd : 1
+2024-02-22 19:54:50,683 [INFO] I2sManager:658 - 1.97E8
+2024-02-22 19:54:50,683 [INFO] I2sManager:195 - I2S Clock Value : 1.97E8
+2024-02-22 19:54:50,683 [INFO] I2sManager:553 - AudioClock : 21986Divider : 17Odd : 1
+2024-02-22 19:54:50,760 [INFO] I2sManager:658 - 1.97E8
+2024-02-22 19:54:50,760 [INFO] I2sManager:195 - I2S Clock Value : 1.97E8
+2024-02-22 19:54:50,761 [INFO] I2sManager:553 - AudioClock : 21986Divider : 17Odd : 1
+2024-02-22 19:55:05,641 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 558659024 Bytes (1073741824)
+2024-02-22 19:55:05,723 [ERROR] ConfigurationRetriever:142 - IOException on connection: sw-center.st.com
+2024-02-22 19:55:05,723 [ERROR] ConfigurationRetriever:142 - IOException on connection: sw-center.st.com
+2024-02-22 19:55:05,723 [ERROR] ConfigurationRetriever:142 - IOException on connection: sw-center.st.com
+2024-02-22 19:55:07,640 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 590116304 Bytes (1073741824)
+2024-02-22 19:55:09,422 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 639399376 Bytes (1073741824)
+2024-02-22 19:55:09,498 [ERROR] ConfigurationRetriever:142 - IOException on connection: sw-center.st.com
+2024-02-22 19:55:09,498 [ERROR] ConfigurationRetriever:142 - IOException on connection: sw-center.st.com
+2024-02-22 19:55:09,499 [ERROR] ConfigurationRetriever:142 - IOException on connection: sw-center.st.com
+2024-02-22 19:55:09,736 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SPI
+2024-02-22 19:55:09,736 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SPI
+2024-02-22 19:55:09,736 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USB_DEVICE
+2024-02-22 19:55:09,736 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: I2S
+2024-02-22 19:55:09,736 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2024-02-22 19:55:09,736 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2024-02-22 19:55:09,736 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USB_OTG_FS
+2024-02-22 19:55:09,736 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2024-02-22 19:55:09,736 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USART
+2024-02-22 19:55:09,737 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: DMA
+2024-02-22 19:55:09,737 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2024-02-22 19:55:09,739 [INFO] CodeGenerator:807 - code generatio: config db path: C:\ST\STM32CubeIDE_1.14.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.10.0.202311202037\\db\
+2024-02-22 19:55:09,747 [INFO] Argument:325 - Argument : hdmavalue: null
+2024-02-22 19:55:09,747 [INFO] Argument:327 - 	 sub Args: 
+2024-02-22 19:55:09,747 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Stream1
+2024-02-22 19:55:09,747 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Stream1
+2024-02-22 19:55:09,747 [INFO] Argument:325 - Argument : Initvalue: null
+2024-02-22 19:55:09,747 [INFO] Argument:327 - 	 sub Args: 
+2024-02-22 19:55:09,747 [INFO] Argument:325 - Argument : Channelvalue: DMA_CHANNEL_9
+2024-02-22 19:55:09,748 [INFO] Argument:335 - Argument : Channelvalue: DMA_CHANNEL_9
+2024-02-22 19:55:09,748 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2024-02-22 19:55:09,748 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2024-02-22 19:55:09,748 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-02-22 19:55:09,748 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-02-22 19:55:09,748 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-02-22 19:55:09,748 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-02-22 19:55:09,748 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_WORD
+2024-02-22 19:55:09,748 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_WORD
+2024-02-22 19:55:09,748 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_WORD
+2024-02-22 19:55:09,748 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_WORD
+2024-02-22 19:55:09,748 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2024-02-22 19:55:09,748 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2024-02-22 19:55:09,748 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_VERY_HIGH
+2024-02-22 19:55:09,748 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_VERY_HIGH
+2024-02-22 19:55:09,748 [INFO] Argument:325 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2024-02-22 19:55:09,748 [INFO] Argument:335 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2024-02-22 19:55:09,748 [INFO] Argument:325 - Argument : FIFOThresholdvalue: null
+2024-02-22 19:55:09,749 [INFO] Argument:335 - Argument : FIFOThresholdvalue: null
+2024-02-22 19:55:09,749 [INFO] Argument:325 - Argument : MemBurstvalue: null
+2024-02-22 19:55:09,749 [INFO] Argument:335 - Argument : MemBurstvalue: null
+2024-02-22 19:55:09,749 [INFO] Argument:325 - Argument : PeriphBurstvalue: null
+2024-02-22 19:55:09,749 [INFO] Argument:335 - Argument : PeriphBurstvalue: null
+2024-02-22 19:55:09,749 [INFO] Argument:325 - Argument : Lockvalue: null
+2024-02-22 19:55:09,749 [INFO] Argument:335 - Argument : Lockvalue: null
+2024-02-22 19:55:09,749 [INFO] Argument:325 - Argument : Statevalue: null
+2024-02-22 19:55:09,749 [INFO] Argument:335 - Argument : Statevalue: null
+2024-02-22 19:55:09,749 [INFO] Argument:325 - Argument : Parentvalue: null
+2024-02-22 19:55:09,749 [INFO] Argument:335 - Argument : Parentvalue: null
+2024-02-22 19:55:09,749 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2024-02-22 19:55:09,749 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2024-02-22 19:55:09,749 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2024-02-22 19:55:09,749 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2024-02-22 19:55:09,749 [INFO] Argument:325 - Argument : XferM1CpltCallbackvalue: null
+2024-02-22 19:55:09,749 [INFO] Argument:335 - Argument : XferM1CpltCallbackvalue: null
+2024-02-22 19:55:09,749 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2024-02-22 19:55:09,749 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2024-02-22 19:55:09,749 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2024-02-22 19:55:09,749 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2024-02-22 19:55:09,807 [WARN] IP:2119 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2024-02-22 19:55:09,807 [WARN] IP:2119 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2024-02-22 19:55:09,807 [WARN] IP:2119 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2024-02-22 19:55:10,003 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\license.tmp_save
+2024-02-22 19:55:10,137 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\license.tmp
+2024-02-22 19:55:10,203 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\gpio.tmp_save
+2024-02-22 19:55:10,305 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\gpio.tmp
+2024-02-22 19:55:10,528 [WARN] IPConfigManager:2946 - Warning: the RefConfig PWREx_EnableUSBVoltageDetector is not available in your config.xml file
+2024-02-22 19:55:10,538 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\usb_otg_fs_vars.tmp_save
+2024-02-22 19:55:10,633 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\usb_otg_fs_vars.tmp
+2024-02-22 19:55:10,637 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\usb_otg_fs_inc.tmp_save
+2024-02-22 19:55:10,689 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\usb_otg_fs_inc.tmp
+2024-02-22 19:55:10,694 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\usb_otg_fs_HalInit.tmp_save
+2024-02-22 19:55:10,799 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\usb_otg_fs_HalInit.tmp
+2024-02-22 19:55:10,805 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\usb_otg_fs_Msp.tmp_save
+2024-02-22 19:55:10,901 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\usb_otg_fs_Msp.tmp
+2024-02-22 19:55:11,674 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-02-22 19:55:11,686 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\cortex.tmp_save
+2024-02-22 19:55:11,803 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\cortex.tmp
+2024-02-22 19:55:11,857 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\dma.tmp_save
+2024-02-22 19:55:11,963 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\dma.tmp
+2024-02-22 19:55:11,967 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\dma_GV.tmp_save
+2024-02-22 19:55:12,024 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\dma_GV.tmp
+2024-02-22 19:55:12,036 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-02-22 19:55:12,064 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\App\usb_device.c_save
+2024-02-22 19:55:12,173 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\App\usb_device.c
+2024-02-22 19:55:12,181 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\App\usb_device.h_save
+2024-02-22 19:55:12,249 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\App\usb_device.h
+2024-02-22 19:55:12,272 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\Target\usbd_conf.h_save
+2024-02-22 19:55:12,359 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\Target\usbd_conf.h
+2024-02-22 19:55:12,382 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\Target\usbd_conf.c_save
+2024-02-22 19:55:12,508 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\Target\usbd_conf.c
+2024-02-22 19:55:12,517 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\App\usbd_desc.h_save
+2024-02-22 19:55:12,591 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\App\usbd_desc.h
+2024-02-22 19:55:12,618 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\App\usbd_desc.c_save
+2024-02-22 19:55:12,737 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\App\usbd_desc.c
+2024-02-22 19:55:12,746 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\App\usbd_cdc_if.h_save
+2024-02-22 19:55:12,809 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\App\usbd_cdc_if.h
+2024-02-22 19:55:12,829 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\App\usbd_cdc_if.c_save
+2024-02-22 19:55:12,950 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\App\usbd_cdc_if.c
+2024-02-22 19:55:12,995 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\Core\Src\stm32f7xx_it.c_save
+2024-02-22 19:55:13,107 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\Core\Src\stm32f7xx_it.c
+2024-02-22 19:55:13,118 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\Core\Inc\stm32f7xx_it.h_save
+2024-02-22 19:55:13,197 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\Core\Inc\stm32f7xx_it.h
+2024-02-22 19:55:13,237 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\Core\Src\stm32f7xx_hal_msp.c_save
+2024-02-22 19:55:13,414 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\Core\Src\stm32f7xx_hal_msp.c
+2024-02-22 19:55:13,434 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\system.tmp_save
+2024-02-22 19:55:13,500 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\system.tmp
+2024-02-22 19:55:13,537 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\Core\Inc\stm32f7xx_hal_conf.h_save
+2024-02-22 19:55:13,679 [INFO] CodeEngine:335 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\Core\Inc\stm32f7xx_hal_conf.h
+2024-02-22 19:55:13,743 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\Core\Inc\main.h_save
+2024-02-22 19:55:13,851 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\Core\Inc\main.h
+2024-02-22 19:55:13,868 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\Core\Src\main.c_save
+2024-02-22 19:55:14,025 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\Core\Src\main.c
+2024-02-22 19:55:14,778 [INFO] ProjectBuilder:3076 - Time for Copy HAL[1] : 229mS.
+2024-02-22 19:55:14,785 [INFO] ProjectBuilder:4485 - Project Generator version: 4.2.0-B44
+2024-02-22 19:55:14,966 [INFO] ConfigFileManager:1495 - The Die is : DIE451
+2024-02-22 19:55:16,916 [INFO] ProjectBuilder:4747 - Time for Generating toolchain IDE Files: 2131mS.
+2024-02-22 19:55:16,917 [INFO] ProjectBuilder:2947 - Time for Copy CMSIS : 0mS.
+2024-02-22 19:55:16,927 [INFO] ProjectBuilder:2947 - Time for Copy CMSIS : 0mS.
+2024-02-22 20:12:05,742 [INFO] I2sManager:658 - 1.97E8
+2024-02-22 20:12:05,742 [INFO] I2sManager:195 - I2S Clock Value : 1.97E8
+2024-02-22 20:12:05,743 [INFO] I2sManager:553 - AudioClock : 21986Divider : 17Odd : 1
+2024-02-22 20:12:05,916 [INFO] I2sManager:658 - 1.97E8
+2024-02-22 20:12:05,916 [INFO] I2sManager:195 - I2S Clock Value : 1.97E8
+2024-02-22 20:12:05,917 [INFO] I2sManager:553 - AudioClock : 21986Divider : 17Odd : 1
+2024-02-22 20:12:41,167 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2024-02-22 20:20:24,472 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 618243896 Bytes (1073741824)
+2024-02-22 20:20:24,552 [ERROR] ConfigurationRetriever:142 - IOException on connection: sw-center.st.com
+2024-02-22 20:20:24,553 [ERROR] ConfigurationRetriever:142 - IOException on connection: sw-center.st.com
+2024-02-22 20:20:24,553 [ERROR] ConfigurationRetriever:142 - IOException on connection: sw-center.st.com
+2024-02-22 20:20:27,287 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 649178936 Bytes (1073741824)
+2024-02-22 20:20:27,358 [ERROR] ConfigurationRetriever:142 - IOException on connection: sw-center.st.com
+2024-02-22 20:20:27,359 [ERROR] ConfigurationRetriever:142 - IOException on connection: sw-center.st.com
+2024-02-22 20:20:27,360 [ERROR] ConfigurationRetriever:142 - IOException on connection: sw-center.st.com
+2024-02-22 20:20:31,404 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 625582368 Bytes (1073741824)
+2024-02-22 20:20:31,492 [ERROR] ConfigurationRetriever:142 - IOException on connection: sw-center.st.com
+2024-02-22 20:20:31,493 [ERROR] ConfigurationRetriever:142 - IOException on connection: sw-center.st.com
+2024-02-22 20:20:31,493 [ERROR] ConfigurationRetriever:142 - IOException on connection: sw-center.st.com
+2024-02-22 20:20:31,727 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SPI
+2024-02-22 20:20:31,727 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SPI
+2024-02-22 20:20:31,727 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USB_DEVICE
+2024-02-22 20:20:31,727 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: I2S
+2024-02-22 20:20:31,727 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2024-02-22 20:20:31,727 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2024-02-22 20:20:31,727 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USB_OTG_FS
+2024-02-22 20:20:31,727 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2024-02-22 20:20:31,727 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USART
+2024-02-22 20:20:31,727 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: DMA
+2024-02-22 20:20:31,728 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2024-02-22 20:20:31,729 [INFO] CodeGenerator:807 - code generatio: config db path: C:\ST\STM32CubeIDE_1.14.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.10.0.202311202037\\db\
+2024-02-22 20:20:31,738 [INFO] Argument:325 - Argument : hdmavalue: null
+2024-02-22 20:20:31,738 [INFO] Argument:327 - 	 sub Args: 
+2024-02-22 20:20:31,738 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Stream1
+2024-02-22 20:20:31,738 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Stream1
+2024-02-22 20:20:31,739 [INFO] Argument:325 - Argument : Initvalue: null
+2024-02-22 20:20:31,739 [INFO] Argument:327 - 	 sub Args: 
+2024-02-22 20:20:31,739 [INFO] Argument:325 - Argument : Channelvalue: DMA_CHANNEL_9
+2024-02-22 20:20:31,739 [INFO] Argument:335 - Argument : Channelvalue: DMA_CHANNEL_9
+2024-02-22 20:20:31,739 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2024-02-22 20:20:31,739 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2024-02-22 20:20:31,739 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-02-22 20:20:31,739 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-02-22 20:20:31,739 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-02-22 20:20:31,739 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-02-22 20:20:31,739 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_WORD
+2024-02-22 20:20:31,739 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_WORD
+2024-02-22 20:20:31,739 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_WORD
+2024-02-22 20:20:31,739 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_WORD
+2024-02-22 20:20:31,739 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2024-02-22 20:20:31,739 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2024-02-22 20:20:31,739 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_VERY_HIGH
+2024-02-22 20:20:31,739 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_VERY_HIGH
+2024-02-22 20:20:31,739 [INFO] Argument:325 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2024-02-22 20:20:31,739 [INFO] Argument:335 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2024-02-22 20:20:31,739 [INFO] Argument:325 - Argument : FIFOThresholdvalue: null
+2024-02-22 20:20:31,739 [INFO] Argument:335 - Argument : FIFOThresholdvalue: null
+2024-02-22 20:20:31,739 [INFO] Argument:325 - Argument : MemBurstvalue: null
+2024-02-22 20:20:31,739 [INFO] Argument:335 - Argument : MemBurstvalue: null
+2024-02-22 20:20:31,739 [INFO] Argument:325 - Argument : PeriphBurstvalue: null
+2024-02-22 20:20:31,739 [INFO] Argument:335 - Argument : PeriphBurstvalue: null
+2024-02-22 20:20:31,740 [INFO] Argument:325 - Argument : Lockvalue: null
+2024-02-22 20:20:31,740 [INFO] Argument:335 - Argument : Lockvalue: null
+2024-02-22 20:20:31,740 [INFO] Argument:325 - Argument : Statevalue: null
+2024-02-22 20:20:31,740 [INFO] Argument:335 - Argument : Statevalue: null
+2024-02-22 20:20:31,740 [INFO] Argument:325 - Argument : Parentvalue: null
+2024-02-22 20:20:31,740 [INFO] Argument:335 - Argument : Parentvalue: null
+2024-02-22 20:20:31,740 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2024-02-22 20:20:31,740 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2024-02-22 20:20:31,740 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2024-02-22 20:20:31,740 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2024-02-22 20:20:31,740 [INFO] Argument:325 - Argument : XferM1CpltCallbackvalue: null
+2024-02-22 20:20:31,740 [INFO] Argument:335 - Argument : XferM1CpltCallbackvalue: null
+2024-02-22 20:20:31,740 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2024-02-22 20:20:31,740 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2024-02-22 20:20:31,740 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2024-02-22 20:20:31,740 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2024-02-22 20:20:31,794 [WARN] IP:2119 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2024-02-22 20:20:31,794 [WARN] IP:2119 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2024-02-22 20:20:31,794 [WARN] IP:2119 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2024-02-22 20:20:32,008 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\license.tmp_save
+2024-02-22 20:20:32,173 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\license.tmp
+2024-02-22 20:20:32,245 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\gpio.tmp_save
+2024-02-22 20:20:32,388 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\gpio.tmp
+2024-02-22 20:20:32,607 [WARN] IPConfigManager:2946 - Warning: the RefConfig PWREx_EnableUSBVoltageDetector is not available in your config.xml file
+2024-02-22 20:20:32,618 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\usb_otg_fs_vars.tmp_save
+2024-02-22 20:20:32,740 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\usb_otg_fs_vars.tmp
+2024-02-22 20:20:32,747 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\usb_otg_fs_inc.tmp_save
+2024-02-22 20:20:32,832 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\usb_otg_fs_inc.tmp
+2024-02-22 20:20:32,838 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\usb_otg_fs_HalInit.tmp_save
+2024-02-22 20:20:32,962 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\usb_otg_fs_HalInit.tmp
+2024-02-22 20:20:32,969 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\usb_otg_fs_Msp.tmp_save
+2024-02-22 20:20:33,089 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\usb_otg_fs_Msp.tmp
+2024-02-22 20:20:33,909 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-02-22 20:20:33,917 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\cortex.tmp_save
+2024-02-22 20:20:34,047 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\cortex.tmp
+2024-02-22 20:20:34,094 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\dma.tmp_save
+2024-02-22 20:20:34,244 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\dma.tmp
+2024-02-22 20:20:34,250 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\dma_GV.tmp_save
+2024-02-22 20:20:34,316 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\dma_GV.tmp
+2024-02-22 20:20:34,327 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-02-22 20:20:34,353 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\App\usb_device.c_save
+2024-02-22 20:20:34,512 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\App\usb_device.c
+2024-02-22 20:20:34,535 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\App\usb_device.h_save
+2024-02-22 20:20:34,611 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\App\usb_device.h
+2024-02-22 20:20:34,630 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\Target\usbd_conf.h_save
+2024-02-22 20:20:34,733 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\Target\usbd_conf.h
+2024-02-22 20:20:34,757 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\Target\usbd_conf.c_save
+2024-02-22 20:20:34,880 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\Target\usbd_conf.c
+2024-02-22 20:20:34,904 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\App\usbd_desc.h_save
+2024-02-22 20:20:34,995 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\App\usbd_desc.h
+2024-02-22 20:20:35,014 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\App\usbd_desc.c_save
+2024-02-22 20:20:35,134 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\App\usbd_desc.c
+2024-02-22 20:20:35,158 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\App\usbd_cdc_if.h_save
+2024-02-22 20:20:35,242 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\App\usbd_cdc_if.h
+2024-02-22 20:20:35,269 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\App\usbd_cdc_if.c_save
+2024-02-22 20:20:35,389 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\USB_DEVICE\App\usbd_cdc_if.c
+2024-02-22 20:20:35,428 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\Core\Src\stm32f7xx_it.c_save
+2024-02-22 20:20:35,636 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\Core\Src\stm32f7xx_it.c
+2024-02-22 20:20:35,657 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\Core\Inc\stm32f7xx_it.h_save
+2024-02-22 20:20:35,737 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\Core\Inc\stm32f7xx_it.h
+2024-02-22 20:20:35,777 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\Core\Src\stm32f7xx_hal_msp.c_save
+2024-02-22 20:20:35,926 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\Core\Src\stm32f7xx_hal_msp.c
+2024-02-22 20:20:35,948 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\system.tmp_save
+2024-02-22 20:20:36,023 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\MXTmpFiles\system.tmp
+2024-02-22 20:20:36,061 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\Core\Inc\stm32f7xx_hal_conf.h_save
+2024-02-22 20:20:36,201 [INFO] CodeEngine:335 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\Core\Inc\stm32f7xx_hal_conf.h
+2024-02-22 20:20:36,267 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\Core\Inc\main.h_save
+2024-02-22 20:20:36,410 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\Core\Inc\main.h
+2024-02-22 20:20:36,436 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\Core\Src\main.c_save
+2024-02-22 20:20:36,569 [INFO] CodeEngine:279 - Generated code: C:\Users\jamie\OneDrive\Documents\GitHub\BirdandWildlifeMonitor\DSP\DSP\Core\Src\main.c
+2024-02-22 20:20:37,324 [INFO] ProjectBuilder:3076 - Time for Copy HAL[1] : 266mS.
+2024-02-22 20:20:37,333 [INFO] ProjectBuilder:4485 - Project Generator version: 4.2.0-B44
+2024-02-22 20:20:37,535 [INFO] ConfigFileManager:1495 - The Die is : DIE451
+2024-02-22 20:20:39,572 [INFO] ProjectBuilder:4747 - Time for Generating toolchain IDE Files: 2239mS.
+2024-02-22 20:20:39,573 [INFO] ProjectBuilder:2947 - Time for Copy CMSIS : 0mS.
+2024-02-22 20:20:39,584 [INFO] ProjectBuilder:2947 - Time for Copy CMSIS : 1mS.

@@ -1,0 +1,10 @@
+00:51:44 **** Incremental Build of configuration Debug for project Digital_Noise_Reduction ****
+make -j12 all 
+arm-none-eabi-size  Digital_Noise_Reduction.elf 
+   text	   data	    bss	    dec	    hex	filename
+  39884	    396	   9068	  49348	   c0c4	Digital_Noise_Reduction.elf
+Finished building: default.size.stdout
+ 
+
+00:51:45 Build Finished. 0 errors, 0 warnings. (took 244ms)
+

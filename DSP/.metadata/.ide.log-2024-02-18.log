@@ -1,0 +1,12 @@
+2024-02-18 14:34:27,581 [WARN] IP:2119 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2024-02-18 14:34:27,606 [WARN] IP:2119 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2024-02-18 14:34:27,606 [WARN] IP:2119 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2024-02-18 14:34:27,607 [WARN] IP:2119 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2024-02-18 14:34:27,607 [WARN] IP:2119 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2024-02-18 14:34:27,607 [WARN] IP:2119 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2024-02-18 14:34:27,749 [INFO] I2sManager:658 - 1.97E8
+2024-02-18 14:34:27,749 [INFO] I2sManager:195 - I2S Clock Value : 1.97E8
+2024-02-18 14:34:27,749 [INFO] I2sManager:553 - AudioClock : 48095Divider : 32Odd : 0
+2024-02-18 14:34:36,278 [INFO] I2sManager:658 - 1.97E8
+2024-02-18 14:34:36,279 [INFO] I2sManager:195 - I2S Clock Value : 1.97E8
+2024-02-18 14:34:36,279 [INFO] I2sManager:553 - AudioClock : 48095Divider : 32Odd : 0
