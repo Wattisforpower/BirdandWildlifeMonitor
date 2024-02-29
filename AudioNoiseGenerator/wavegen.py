@@ -6,42 +6,48 @@ import numpy as np
 import matplotlib.pyplot as plt
 import librosa
 import random
+<<<<<<< Updated upstream
+=======
+import sounddevice as sd
+>>>>>>> Stashed changes
 
-SR = 20000
+SampleRate = 20000
 Length = 10
 amplitude = 0.001
 
 audiopath = 'Audio/Barnswallow/SplitData/BarnSwallow2_split_1.wav'
 
-# Noise Generator
-noise = stats.truncnorm(-1, 1, scale=min(2**16, 2**amplitude)).rvs(SR * Length)
-#wavfile.write('noise.wav', SR, noise.astype(np.int16))
-
 # Original Signal
-LoadingBuffer, sr = librosa.load(audiopath, sr = SR)
+LoadingBuffer, sr = librosa.load(audiopath, sr = SampleRate)
 
-Result = np.empty(0)
+# Noise Generator
+noise = np.empty(0)
 
-def SpectralForecast():
-    global LoadingBuffer, noise, Result
+def GenNoise():
+    global LoadingBuffer, noise
 
-    MaxA = 1 #int(np.max(LoadingBuffer))
-    MaxB = int(np.max(noise))
+    for i in range(len(LoadingBuffer)):
+        temp = random.uniform(-1, 1)
 
-    MaxAB = np.max([MaxA, MaxB])
+        noise = np.append(noise, temp)
+GenNoise()
 
+<<<<<<< Updated upstream
     d = random.randint(0, MaxAB)
+=======
+OutNoise = 0.1*noise
+>>>>>>> Stashed changes
 
-    for i in range(0, len(LoadingBuffer)):
-        temp = ((d / MaxA) * LoadingBuffer[i]) + (((MaxAB - d) / MaxB) * noise[i])
+Result = LoadingBuffer + OutNoise
 
-        Result = np.append(Result, temp)
+print("playingAudio")
 
-SpectralForecast()
+sd.play(Result, 20000)
 
 plt.figure()
 plt.subplot(1, 3, 1)
 plt.plot(noise)
+plt.plot(OutNoise)
 plt.title("Noise")
 plt.subplot(1, 3, 2)
 plt.plot(LoadingBuffer)
@@ -50,5 +56,4 @@ plt.subplot(1, 3, 3)
 plt.plot(Result)
 plt.title("Combined Signal")
 plt.show()
-
 
