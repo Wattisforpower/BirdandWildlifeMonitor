@@ -6,7 +6,7 @@ class Functions_Toolbox:
     def __init__(self) -> None:
         pass
 
-    def Create_Connection(self, port = '/dev/ttyUSB0', baudrate = 9600) -> None:
+    def Create_Connection(self, port = '/dev/ttyUSB0', baudrate = 115200) -> None:
         self.Terminal = serial.Serial()
         self.Terminal.baudrate = baudrate
         self.Terminal.port = port
@@ -44,4 +44,20 @@ class Functions_Toolbox:
             # This will produce the error for example when a system goes down
         # SYS -> Generic System data communication
             # This includes data about the battery levels*, system operations
-        pass
+        
+        # Read the incoming data, if any
+        Data = self.Read()
+
+        datasplit = Data.split(":")
+
+        if (datasplit[0] == "RES"):
+            return datasplit[1]
+        
+        elif (datasplit[0] == "ERR"):
+            print("ERROR: " + str(datasplit[1]))
+            return datasplit[1]
+        
+        elif (datasplit[0] == "SYS"):
+            print("System Data: " + str(datasplit[1]))
+            return datasplit[1]
+        
