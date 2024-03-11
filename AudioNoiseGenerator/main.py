@@ -18,17 +18,10 @@ slider_label.place(x = 100, y = 300)
 slider = tk.Scale(root, from_=0, to=100, orient= "horizontal")
 slider.place(x = 100, y = 320)
 
-# Audio Box
-Audio_Label = tk.Label(root, text="Please enter an Audio Source")
-Audio_Label.place(x = 100, y = 410)
-Audio_Textbox = tk.Entry(root)
-Audio_Textbox.place(x = 100, y = 430)
-
 # Load in the noise
 Noise, _ = librosa.load("AudioNoiseGenerator/Noise2.wav", sr = 20000)
 
 # Drop down for each species
-
 Track = ''
 SpeciesSelection = ''
 
@@ -58,7 +51,7 @@ def Store1():
     elif SpeciesSelection == 'Herring Gull':
         Track = 'Audio/HerringGull/SplitData/HerringGullMB1_split_1.wav'
     
-    elif SpeciesSelection == 'Nothern Lapwing':
+    elif SpeciesSelection == 'Northern Lapwing':
         Track = 'Audio/NorthernLapwing/SplitData/NorthernLapwing1_split_1.wav'
     
     elif SpeciesSelection == 'Redwing':
@@ -90,53 +83,459 @@ def Store2():
     elif SpeciesSelection == 'Herring Gull':
         Track = 'Audio/HerringGull/SplitData/HerringGullMB1_split_2.wav'
     
-    elif SpeciesSelection == 'Nothern Lapwing':
+    elif SpeciesSelection == 'Northern Lapwing':
         Track = 'Audio/NorthernLapwing/SplitData/NorthernLapwing1_split_2.wav'
     
     elif SpeciesSelection == 'Redwing':
         Track = 'Audio/Redwing/SplitData/Redwing1_split_2.wav'
 
 def Store3():
-    pass
+    global SpeciesSelection, Track
+    if SpeciesSelection == 'Barnswallow':
+        Track = 'Audio/Barnswallow/SplitData/BarnSwallow2_split_1.wav'
+
+    elif SpeciesSelection == 'Blackheaded Gull':
+        Track = 'Audio/BlackheadedGull/SplitData/BlackheadedGull1_split_3.wav'
+
+    elif SpeciesSelection == 'Common Guillemot':
+        Track = 'Audio/CommonGuillemot/SplitData/CommonGuillemot2_split_1.wav'
+
+    elif SpeciesSelection == 'Common Starling':
+        Track = 'Audio/CommonStarling/SplitData/CommonStarling1_split_3.wav'
+    
+    elif SpeciesSelection == 'Dunlin':
+        Track = 'Audio/Dunlin/SplitData/Dunlin4_split_1.wav'
+
+    elif SpeciesSelection == 'Eurasian Oyster Catcher':
+        Track = 'Audio/EurasianOysterCatcher/SplitData/Dunlin2_split_2.wav'
+    
+    elif SpeciesSelection == 'European Golden Plover':
+        Track = '  '
+
+    elif SpeciesSelection == 'Herring Gull':
+        Track = 'Audio/HerringGull/SplitData/HerringGullMB2_split_1.wav'
+    
+    elif SpeciesSelection == 'Northern Lapwing':
+        Track = 'Audio/NorthernLapwing/SplitData/NorthernLapwing1_split_3.wav'
+    
+    elif SpeciesSelection == 'Redwing':
+        Track = 'Audio/Redwing/SplitData/Redwing1_split_3.wav'
 
 def Store4():
-    pass
+    global SpeciesSelection, Track
+    if SpeciesSelection == 'Barnswallow':
+        Track = 'Audio/Barnswallow/SplitData/BarnSwallow2_split_2.wav'
+
+    elif SpeciesSelection == 'Blackheaded Gull':
+        Track = 'Audio/BlackheadedGull/SplitData/BlackheadedGull2_split_1.wav'
+
+    elif SpeciesSelection == 'Common Guillemot':
+        Track = 'Audio/CommonGuillemot/SplitData/CommonGuillemot2_split_2.wav'
+
+    elif SpeciesSelection == 'Common Starling':
+        Track = 'Audio/CommonStarling/SplitData/CommonStarling2_split_1.wav'
+    
+    elif SpeciesSelection == 'Dunlin':
+        Track = 'Audio/Dunlin/SplitData/Dunlin4_split_2.wav'
+
+    elif SpeciesSelection == 'Eurasian Oyster Catcher':
+        Track = 'Audio/EurasianOysterCatcher/SplitData/Dunlin2_split_3.wav'
+    
+    elif SpeciesSelection == 'European Golden Plover':
+        Track = '  '
+
+    elif SpeciesSelection == 'Herring Gull':
+        Track = 'Audio/HerringGull/SplitData/HerringGullMB3_split_1.wav'
+    
+    elif SpeciesSelection == 'Northern Lapwing':
+        Track = 'Audio/NorthernLapwing/SplitData/NorthernLapwing2_split_1.wav'
+    
+    elif SpeciesSelection == 'Redwing':
+        Track = 'Audio/Redwing/SplitData/Redwing2_split_1.wav'
 
 def Store5():
-    pass
+    global SpeciesSelection, Track
+    if SpeciesSelection == 'Barnswallow':
+        Track = 'Audio/Barnswallow/SplitData/BarnSwallow2_split_3.wav'
+
+    elif SpeciesSelection == 'Blackheaded Gull':
+        Track = 'Audio/BlackheadedGull/SplitData/BlackheadedGull2_split_2.wav'
+
+    elif SpeciesSelection == 'Common Guillemot':
+        Track = 'Audio/CommonGuillemot/SplitData/CommonGuillemot3_split_1.wav'
+
+    elif SpeciesSelection == 'Common Starling':
+        Track = 'Audio/CommonStarling/SplitData/CommonStarling2_split_2.wav'
+    
+    elif SpeciesSelection == 'Dunlin':
+        Track = 'Audio/Dunlin/SplitData/Dunlin5_split_1.wav'
+
+    elif SpeciesSelection == 'Eurasian Oyster Catcher':
+        Track = '  '
+    
+    elif SpeciesSelection == 'European Golden Plover':
+        Track = '  '
+
+    elif SpeciesSelection == 'Herring Gull':
+        Track = 'Audio/HerringGull/SplitData/HerringGullMB4_split_1.wav'
+    
+    elif SpeciesSelection == 'Northern Lapwing':
+        Track = 'Audio/NorthernLapwing/SplitData/NorthernLapwing2_split_2.wav'
+    
+    elif SpeciesSelection == 'Redwing':
+        Track = 'Audio/Redwing/SplitData/Redwing2_split_2.wav'
 
 def Store6():
-    pass
+    global SpeciesSelection, Track
+    if SpeciesSelection == 'Barnswallow':
+        Track = 'Audio/Barnswallow/SplitData/BarnSwallow3_split_1.wav'
+
+    elif SpeciesSelection == 'Blackheaded Gull':
+        Track = 'Audio/BlackheadedGull/SplitData/BlackheadedGull3_split_1.wav'
+
+    elif SpeciesSelection == 'Common Guillemot':
+        Track = 'Audio/CommonGuillemot/SplitData/CommonGuillemot3_split_2.wav'
+
+    elif SpeciesSelection == 'Common Starling':
+        Track = 'Audio/CommonStarling/SplitData/CommonStarling2_split_3.wav'
+    
+    elif SpeciesSelection == 'Dunlin':
+        Track = 'Audio/Dunlin/SplitData/Dunlin5_split_2.wav'
+
+    elif SpeciesSelection == 'Eurasian Oyster Catcher':
+        Track = '  '
+    
+    elif SpeciesSelection == 'European Golden Plover':
+        Track = '  '
+
+    elif SpeciesSelection == 'Herring Gull':
+        Track = 'Audio/HerringGull/SplitData/HerringGullMB5_split_1.wav'
+    
+    elif SpeciesSelection == 'Northern Lapwing':
+        Track = 'Audio/NorthernLapwing/SplitData/NorthernLapwing2_split_3.wav'
+    
+    elif SpeciesSelection == 'Redwing':
+        Track = 'Audio/Redwing/SplitData/Redwing2_split_3.wav'
 
 def Store7():
-    pass
+    global SpeciesSelection, Track
+    if SpeciesSelection == 'Barnswallow':
+        Track = 'Audio/Barnswallow/SplitData/BarnSwallow4_split_1.wav'
+
+    elif SpeciesSelection == 'Blackheaded Gull':
+        Track = 'Audio/BlackheadedGull/SplitData/BlackheadedGull4_split_1.wav'
+
+    elif SpeciesSelection == 'Common Guillemot':
+        Track = '  '
+
+    elif SpeciesSelection == 'Common Starling':
+        Track = 'Audio/CommonStarling/SplitData/CommonStarling2_split_4.wav'
+    
+    elif SpeciesSelection == 'Dunlin':
+        Track = 'Audio/Dunlin/SplitData/Dunlin6_split_1.wav'
+
+    elif SpeciesSelection == 'Eurasian Oyster Catcher':
+        Track = '  '
+    
+    elif SpeciesSelection == 'European Golden Plover':
+        Track = '  '
+
+    elif SpeciesSelection == 'Herring Gull':
+        Track = 'Audio/HerringGull/SplitData/HerringGullMB6_split_1.wav'
+    
+    elif SpeciesSelection == 'Northern Lapwing':
+        Track = 'Audio/NorthernLapwing/SplitData/NorthernLapwing3_split_1.wav'
+    
+    elif SpeciesSelection == 'Redwing':
+        Track = 'Audio/Redwing/SplitData/Redwing3_split_1.wav'
 
 def Store8():
-    pass
+    global SpeciesSelection, Track
+    if SpeciesSelection == 'Barnswallow':
+        Track = 'Audio/Barnswallow/SplitData/BarnSwallow4_split_2.wav'
+
+    elif SpeciesSelection == 'Blackheaded Gull':
+        Track = 'Audio/BlackheadedGull/SplitData/BlackheadedGull4_split_2.wav'
+
+    elif SpeciesSelection == 'Common Guillemot':
+        Track = '  '
+
+    elif SpeciesSelection == 'Common Starling':
+        Track = 'Audio/CommonStarling/SplitData/CommonStarling3_split_1.wav'
+    
+    elif SpeciesSelection == 'Dunlin':
+        Track = 'Audio/Dunlin/SplitData/Dunlin6_split_2.wav'
+
+    elif SpeciesSelection == 'Eurasian Oyster Catcher':
+        Track = '  '
+    
+    elif SpeciesSelection == 'European Golden Plover':
+        Track = '  '
+
+    elif SpeciesSelection == 'Herring Gull':
+        Track = 'Audio/HerringGull/SplitData/HerringGullMB6_split_2.wav'
+    
+    elif SpeciesSelection == 'Northern Lapwing':
+        Track = 'Audio/NorthernLapwing/SplitData/NorthernLapwing4_split_1.wav'
+    
+    elif SpeciesSelection == 'Redwing':
+        Track = '  '
 
 def Store9():
-    pass
+    global SpeciesSelection, Track
+    if SpeciesSelection == 'Barnswallow':
+        Track = 'Audio/Barnswallow/SplitData/BarnSwallow5_split_1.wav'
+
+    elif SpeciesSelection == 'Blackheaded Gull':
+        Track = 'Audio/BlackheadedGull/SplitData/BlackheadedGull5_split_1.wav'
+
+    elif SpeciesSelection == 'Common Guillemot':
+        Track = '  '
+
+    elif SpeciesSelection == 'Common Starling':
+        Track = 'Audio/CommonStarling/SplitData/CommonStarling3_split_2.wav'
+    
+    elif SpeciesSelection == 'Dunlin':
+        Track = 'Audio/Dunlin/SplitData/Dunlin7_split_1.wav'
+
+    elif SpeciesSelection == 'Eurasian Oyster Catcher':
+        Track = '  '
+    
+    elif SpeciesSelection == 'European Golden Plover':
+        Track = '  '
+
+    elif SpeciesSelection == 'Herring Gull':
+        Track = '  '
+    
+    elif SpeciesSelection == 'Northern Lapwing':
+        Track = 'Audio/NorthernLapwing/SplitData/NorthernLapwing5_split_1.wav'
+    
+    elif SpeciesSelection == 'Redwing':
+        Track = '  '
 
 def Store10():
-    pass
+    global SpeciesSelection, Track
+    if SpeciesSelection == 'Barnswallow':
+        Track = 'Audio/Barnswallow/SplitData/BarnSwallow6_split_1.wav'
+
+    elif SpeciesSelection == 'Blackheaded Gull':
+        Track = '  '
+
+    elif SpeciesSelection == 'Common Guillemot':
+        Track = '  '
+
+    elif SpeciesSelection == 'Common Starling':
+        Track = 'Audio/CommonStarling/SplitData/CommonStarling3_split_3.wav'
+    
+    elif SpeciesSelection == 'Dunlin':
+        Track = 'Audio/Dunlin/SplitData/Dunlin7_split_2.wav'
+
+    elif SpeciesSelection == 'Eurasian Oyster Catcher':
+        Track = '  '
+    
+    elif SpeciesSelection == 'European Golden Plover':
+        Track = '  '
+
+    elif SpeciesSelection == 'Herring Gull':
+        Track = '  '
+    
+    elif SpeciesSelection == 'Northern Lapwing':
+        Track = 'Audio/NorthernLapwing/SplitData/NorthernLapwing5_split_2.wav'
+    
+    elif SpeciesSelection == 'Redwing':
+        Track = '  '
 
 def Store11():
-    pass
+    global SpeciesSelection, Track
+    if SpeciesSelection == 'Barnswallow':
+        Track = 'Audio/Barnswallow/SplitData/BarnSwallow7_split_1.wav'
+
+    elif SpeciesSelection == 'Blackheaded Gull':
+        Track = '  '
+
+    elif SpeciesSelection == 'Common Guillemot':
+        Track = '  '
+
+    elif SpeciesSelection == 'Common Starling':
+        Track = 'Audio/CommonStarling/SplitData/CommonStarling3_split_4.wav'
+    
+    elif SpeciesSelection == 'Dunlin':
+        Track = 'Audio/Dunlin/SplitData/Dunlin8_split_1.wav'
+
+    elif SpeciesSelection == 'Eurasian Oyster Catcher':
+        Track = '  '
+    
+    elif SpeciesSelection == 'European Golden Plover':
+        Track = '  '
+
+    elif SpeciesSelection == 'Herring Gull':
+        Track = '  '
+    
+    elif SpeciesSelection == 'Northern Lapwing':
+        Track = 'Audio/NorthernLapwing/SplitData/NorthernLapwing6_split_1.wav'
+    
+    elif SpeciesSelection == 'Redwing':
+        Track = '  '
 
 def Store12():
-    pass
+    global SpeciesSelection, Track
+    if SpeciesSelection == 'Barnswallow':
+        Track = '  '
+
+    elif SpeciesSelection == 'Blackheaded Gull':
+        Track = '  '
+
+    elif SpeciesSelection == 'Common Guillemot':
+        Track = '  '
+
+    elif SpeciesSelection == 'Common Starling':
+        Track = 'Audio/CommonStarling/SplitData/CommonStarling4_split_1.wav'
+    
+    elif SpeciesSelection == 'Dunlin':
+        Track = 'Audio/Dunlin/SplitData/Dunlin8_split_2.wav'
+
+    elif SpeciesSelection == 'Eurasian Oyster Catcher':
+        Track = '  '
+    
+    elif SpeciesSelection == 'European Golden Plover':
+        Track = '  '
+
+    elif SpeciesSelection == 'Herring Gull':
+        Track = '  '
+    
+    elif SpeciesSelection == 'Northern Lapwing':
+        Track = 'Audio/NorthernLapwing/SplitData/NorthernLapwing6_split_2.wav'
+    
+    elif SpeciesSelection == 'Redwing':
+        Track = '  '
 
 def Store13():
-    pass
+    global SpeciesSelection, Track
+    if SpeciesSelection == 'Barnswallow':
+        Track = '  '
+
+    elif SpeciesSelection == 'Blackheaded Gull':
+        Track = '  '
+
+    elif SpeciesSelection == 'Common Guillemot':
+        Track = '  '
+
+    elif SpeciesSelection == 'Common Starling':
+        Track = 'Audio/CommonStarling/SplitData/CommonStarling4_split_2.wav'
+    
+    elif SpeciesSelection == 'Dunlin':
+        Track = '  '
+
+    elif SpeciesSelection == 'Eurasian Oyster Catcher':
+        Track = '  '
+    
+    elif SpeciesSelection == 'European Golden Plover':
+        Track = '  '
+
+    elif SpeciesSelection == 'Herring Gull':
+        Track = '  '
+    
+    elif SpeciesSelection == 'Northern Lapwing':
+        Track = 'Audio/NorthernLapwing/SplitData/NorthernLapwing7_split_1.wav'
+    
+    elif SpeciesSelection == 'Redwing':
+        Track = '  '
 
 def Store14():
-    pass
+    global SpeciesSelection, Track
+    if SpeciesSelection == 'Barnswallow':
+        Track = '  '
+
+    elif SpeciesSelection == 'Blackheaded Gull':
+        Track = '  '
+
+    elif SpeciesSelection == 'Common Guillemot':
+        Track = '  '
+
+    elif SpeciesSelection == 'Common Starling':
+        Track = 'Audio/CommonStarling/SplitData/CommonStarling5_split_1.wav'
+    
+    elif SpeciesSelection == 'Dunlin':
+        Track = '  '
+
+    elif SpeciesSelection == 'Eurasian Oyster Catcher':
+        Track = '  '
+    
+    elif SpeciesSelection == 'European Golden Plover':
+        Track = '  '
+
+    elif SpeciesSelection == 'Herring Gull':
+        Track = '  '
+    
+    elif SpeciesSelection == 'Northern Lapwing':
+        Track = 'Audio/NorthernLapwing/SplitData/NorthernLapwing7_split_2.wav'
+    
+    elif SpeciesSelection == 'Redwing':
+        Track = '  '
 
 def Store15():
-    pass
+    global SpeciesSelection, Track
+    if SpeciesSelection == 'Barnswallow':
+        Track = '  '
+
+    elif SpeciesSelection == 'Blackheaded Gull':
+        Track = '  '
+
+    elif SpeciesSelection == 'Common Guillemot':
+        Track = '  '
+
+    elif SpeciesSelection == 'Common Starling':
+        Track = 'Audio/CommonStarling/SplitData/CommonStarling6_split_1.wav'
+    
+    elif SpeciesSelection == 'Dunlin':
+        Track = '  '
+
+    elif SpeciesSelection == 'Eurasian Oyster Catcher':
+        Track = '  '
+    
+    elif SpeciesSelection == 'European Golden Plover':
+        Track = '  '
+
+    elif SpeciesSelection == 'Herring Gull':
+        Track = '  '
+    
+    elif SpeciesSelection == 'Northern Lapwing':
+        Track = '  '
+    
+    elif SpeciesSelection == 'Redwing':
+        Track = '  '
 
 def Store16():
-    pass
+    global SpeciesSelection, Track
+    if SpeciesSelection == 'Barnswallow':
+        Track = '  '
+
+    elif SpeciesSelection == 'Blackheaded Gull':
+        Track = '  '
+
+    elif SpeciesSelection == 'Common Guillemot':
+        Track = '  '
+
+    elif SpeciesSelection == 'Common Starling':
+        Track = 'Audio/CommonStarling/SplitData/CommonStarling7_split_1.wav'
+    
+    elif SpeciesSelection == 'Dunlin':
+        Track = '  '
+
+    elif SpeciesSelection == 'Eurasian Oyster Catcher':
+        Track = '  '
+    
+    elif SpeciesSelection == 'European Golden Plover':
+        Track = '  '
+
+    elif SpeciesSelection == 'Herring Gull':
+        Track = '  '
+    
+    elif SpeciesSelection == 'Northern Lapwing':
+        Track = '  '
+    
+    elif SpeciesSelection == 'Redwing':
+        Track = '  '
 
 def UpdateButtonNames():
     global SpeciesSelection
@@ -434,9 +833,6 @@ def Play():
     global Noise, Track
 
     #audiopath = 'Audio/Barnswallow/SplitData/BarnSwallow2_split_1.wav'
-
-    audiopath = Audio_Textbox.get()
-
     Audio, _ = librosa.load(Track, sr = 20000)
 
     PercentageOfNoise = slider.get() / 100
