@@ -3,11 +3,10 @@ from tkinter import ttk
 import matplotlib.pyplot as plt
 from PIL import Image, ImageTk
 import serialComs
-import pandas as pd
 
 print("Loading")
 
-PySer = serialComs.SerialComs("COM6", "115200")
+PySer = serialComs.SerialComs("COM7", "115200")
 PySer.Open()
 
 print("1")
