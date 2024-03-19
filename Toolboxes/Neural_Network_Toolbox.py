@@ -13,7 +13,7 @@ import pygad
 
 class Neural_Networks:
     def __init__(self) -> None:
-        self.Buffers = BT.Buffer(520, 20, 20000)
+        self.Buffers = BT.Buffer(520, 20, 48000)
 
 
     def PrepData(self) -> None:
