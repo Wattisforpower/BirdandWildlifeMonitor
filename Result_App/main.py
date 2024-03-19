@@ -3,7 +3,6 @@ from tkinter import ttk
 import matplotlib.pyplot as plt
 from PIL import Image, ImageTk
 import serialComs
-import pandas as pd
 
 print("Loading")
 
@@ -20,7 +19,6 @@ CurrentObservation = ttk.Frame(Tabs)
 PreviousObservations = ttk.Frame(Tabs)
 
 Tabs.add(CurrentObservation, text = "Current Observation")
-Tabs.add(PreviousObservations, text = "Previous Observations")
 Tabs.pack(expand = 1, fill = "both")
 
 # Tab 1 Program
@@ -44,9 +42,12 @@ SpeciesLabel.place(x = 150, y = 20)
 
 Load = Image.open('Result_App/Images/questionmark.jpg')
 Render = None
+PreviousResult = "Unknown"
+Result = "Unknown"
 
 print("2")
 
+'''
 def RenderResults():
     global PreviousResult
     try:
@@ -63,16 +64,30 @@ def RenderResults():
     root.after(10)
 
 RenderResults()
+'''
+
+def GetResults():
+    global Result, PreviousResult
+    Instream = PySer.ReadLine()
+    print(Instream)
+    Instream_Decoded = Instream.decode("utf-8", errors = 'ignore')
+
+    if Instream_Decoded in ImageList:
+        Result = Instream_Decoded
+    elif Instream_Decoded == 'Unknown\n':
+        Result = Instream_Decoded
+    else:
+        Result = PreviousResult
     
+    #CurrentObservation.after(10, GetResults)
+
+#GetResults()
+
 
 def Update():
-    global Load, Render
+    global Load, Render, PreviousResult, Result
 
-    Result = "Unknown"
-
-    with open("Result_App/Results.csv", "r") as f:
-        Result = f.readline()[-1]
-        f.close()
+    GetResults()
 
     SpeciesLabel.config(text = Result)
 
@@ -99,10 +114,14 @@ def Update():
     else:
         Load = Image.open('Result_App/Images/questionmark.jpg')
     
-    Render = ImageTk.PhotoImage(Load)
+
+    Render = ImageTk.PhotoImage(Load.resize((300, 300)))
 
     Img = tk.Label(CurrentObservation, image = Render)
     Img.place(x = 10, y = 40)
+
+    if Result != PreviousResult:
+        PreviousResult = Result
 
 
     CurrentObservation.after(1000, Update)

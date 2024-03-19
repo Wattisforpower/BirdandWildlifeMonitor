@@ -18,10 +18,7 @@ class SerialComs:
             print("Serial Already Closed")
         
     def ReadLine(self) -> str:
-        if self.ser.readline() == "":
-            return "Unknown"
-        else:
-            return self.ser.readline()
+        return self.ser.readline()
     
     def WriteLine(self, writeable) -> None:
         self.ser.write(b'{}}'.format(writeable))
