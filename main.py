@@ -5,12 +5,12 @@ from Toolboxes import Data_Transmission_Toolbox as DTT
 #from Toolboxes import WandB_Toolbox as WB
 #from spidev import SpiDev
 #import wiringpi
-#import time
+import time
 
 #wiringpi.wiringPiSetupSys()
 
 system = PT.RunPredictor()
-#Data_Transmit = DTT.TransmissionSystem()
+Data_Transmit = DTT.TransmissionSystem()
 #Network = NTT.Neural_Networks()
 
 
@@ -30,12 +30,11 @@ def main():
     #Data_Transmit.website(Result)
     #Data_Transmit.SendSerial(Result);
     
+    Data_Transmit.LoRa_Setup()
+    
     while True:
-        Buffers.ClearBuffers()
-        Buffers.CollectingData()
-        
-        Buffers.PrintContentsOfBuffer()
-        
+        Data_Transmit.LoRa_Send("Hello World!")
+        time.sleep(3)
         
     
     
