@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bird and Wildlife Monitor</title>
+
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/jquerycsvtotable/jquery.csvToTable.js"></script>
+        <script src="scripts.js"></script>
+
+        <script>
+            $(function(){
+                $('#CSVTable').CSVToTable('data.csv')
+            });
+        </script>
+
+
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+    <body>
+        <section class="Header">
+            
+        </section>
+
+        <section class="bodyMain">
+            <div class="imageDisplay">
+                <img src="Images/questionmark.jpg" alt="Result Image" width="25%" height="25%" id="ResultImage">
+                <p id="ResultText">Unknown Result</p>
+            </div>
+
+            <div class="PrevResults">
+
+            </div>
+        </section>
+
+        <section class="Footer">
+
+        </section>
+    </body>
+</html>
