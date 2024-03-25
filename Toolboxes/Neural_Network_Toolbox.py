@@ -162,6 +162,9 @@ class Neural_Networks:
 
         return model
     
+    def ReturnModel(self):
+        return self.__DevelopedModel()
+    
     def __Train(self) -> None:
         self.epochs = 20
         self.Optimizer = tf.keras.optimizers.Adam()
