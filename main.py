@@ -5,7 +5,7 @@ from Toolboxes import Data_Transmission_Toolbox as DTT
 #from Toolboxes import WandB_Toolbox as WB
 #from spidev import SpiDev
 #import wiringpi
-#import time
+import time
 
 #wiringpi.wiringPiSetupSys()
 
@@ -15,7 +15,7 @@ Data_Transmit = DTT.TransmissionSystem()
 
 
 #spi = SpiDev()
-Buffers = BT.Buffer(520, 20, 20000)
+Buffers = BT.Buffer(520, 10, 48000)
 
 # Arbitary Pin Value, Change it later!
 Pin = 6
@@ -23,10 +23,20 @@ Pin = 6
 def main():
     #WB.run()
     
-    #Result = 'Hello'
-    Result, _ = system.runClassifier('/home/pi/Documents/GitHub/BirdandWildlifeMonitor/Audio/Barnswallow/SplitData/BarnSwallow1_split_2.wav', False)
-    Data_Transmit.website(Result)
-    Data_Transmit.SendSerial(Result);
+    #Result = 'Unknown'
+    #Result, _ = system.runClassifi                                                                        er('/home/pi/Documents/GitHub/BirdandWildlifeMonitor/Audio/NorthernLapwing/SplitData/NorthernLapwing1_split_1.wav', False)
+    #Result, _ = system.runClassifier('/home/pi/Documents/GitHub/BirdandWildlifeMonitor/Audio/Barnswallow/SplitData/BarnSwallow1_split_2.wav', False)
+    #Result, _ = system.runClassifier('/home/pi/Documents/GitHub/BirdandWildlifeMonitor/Audio/HerringGull/SplitData/HerringGullMB4_split_1.wav', False)
+    #Data_Transmit.website(Result)
+    #Data_Transmit.SendSerial(Result);
+    
+    Data_Transmit.LoRa_Setup()
+    
+    while True:
+        Data_Transmit.LoRa_Send("Hello World!")
+        time.sleep(3)
+        
+    
     
     '''
     wiringpi.pinMode(Pin, 0) # Pin 6 Input Pin
