@@ -2,65 +2,53 @@ from Toolboxes import Predictor_Toolbox as PT
 from Toolboxes import Buffer_Toolbox as BT
 from Toolboxes import Data_Transmission_Toolbox as DTT
 #from Toolboxes import Neural_Network_Toolbox as NTT
-#from Toolboxes import WandB_Toolbox as WB
-#from spidev import SpiDev
-#import wiringpi
+from Toolboxes import SPI_Toolbox
+import RPi.GPIO as GPIO
 import time
 
-#wiringpi.wiringPiSetupSys()
+# --- Setup GPIO ---
+GPIO.setmode(GPIO.BCM)
 
+pin = 6
+
+GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+
+
+# --- Setup Classes --- 
 system = PT.RunPredictor()
+Buffers = BT.Buffer(520, 10, 48000)
 Data_Transmit = DTT.TransmissionSystem()
 #Network = NTT.Neural_Networks()
+AudioStream = SPI_Toolbox.IIC_SPI_Communications(24, 3, 20000)
 
-
-#spi = SpiDev()
-Buffers = BT.Buffer(520, 10, 48000)
-
-# Arbitary Pin Value, Change it later!
-Pin = 6
 
 def main():
-    #WB.run()
     
-    #Result = 'Unknown'
-    #Result, _ = system.runClassifi                                                                        er('/home/pi/Documents/GitHub/BirdandWildlifeMonitor/Audio/NorthernLapwing/SplitData/NorthernLapwing1_split_1.wav', False)
-    #Result, _ = system.runClassifier('/home/pi/Documents/GitHub/BirdandWildlifeMonitor/Audio/Barnswallow/SplitData/BarnSwallow1_split_2.wav', False)
-    #Result, _ = system.runClassifier('/home/pi/Documents/GitHub/BirdandWildlifeMonitor/Audio/HerringGull/SplitData/HerringGullMB4_split_1.wav', False)
-    #Data_Transmit.website(Result)
-    #Data_Transmit.SendSerial(Result);
-    
-    Data_Transmit.LoRa_Setup()
+    #AudioStream.GetDevices() # Used to get the correct audio input for pyAudio
+    AudioStream.AudioStart()
     
     while True:
-        Data_Transmit.LoRa_Send("Hello World!")
-        time.sleep(3)
+        if GPIO.input(pin):
+            AudioStream.DataCollection(10)
+            AudioStream.DataSaver('Temp')
+            try:
+                Result, score = system.runClassifier('/home/pi/Documents/GitHub/BirdandWildlifeMonitor/Toolboxes/Data/Temp.wav', False)
+            except:
+                print("No Data!")
+
+            if (score >  20):
+                Data_Transmit.SendSerial(Result)
+            elif (score < 15):
+                Data_Transmit.SendSerial('Unknown Species')
+            else:
+                Data_Transmit.SendSerial('No Species Detected')
+            
+            time.sleep(10) # Remove when not testing!
         
-    
-    
-    '''
-    wiringpi.pinMode(Pin, 0) # Pin 6 Input Pin
-    while True:
-        if wiringpi.digitalRead(Pin) == 1:
-            # Open SPI Port and Read the Data into the Buffers
-            spi.open(5, 1)
-            spi.max_speed_hz = 5000
-            Buffers.BufferLoad(spi.read_all())
-            Buffers.BufferLoad(spi.read_all())
-            spi.close()
-            
-            # Run the Classifier
-            Result, _ = system.runClassifier('/home/pi/Documents/GitHub/BirdandWildlifeMonitor/Audio/Barnswallow/SplitData/BarnSwallow6_split_1.wav', False)
-            
-            # Send Classification Result to the website
-            Data_Transmit.website(Result)
-            
-                
-            
         else:
-            time.sleep(0.1)
-            
-    '''
+            print("No Data!")
+    
+
 
 
 if __name__ == "__main__":
