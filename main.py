@@ -19,7 +19,7 @@ system = PT.RunPredictor()
 Buffers = BT.Buffer(520, 10, 48000)
 Data_Transmit = DTT.TransmissionSystem()
 #Network = NTT.Neural_Networks()
-AudioStream = SPI_Toolbox.IIC_SPI_Communications(24, 3, 20000)
+AudioStream = SPI_Toolbox.IIC_SPI_Communications(24, 3, 48000)
 
 
 def main():
@@ -38,7 +38,7 @@ def main():
 
             if (score >  20):
                 Data_Transmit.SendSerial(Result)
-            elif (score < 15):
+            elif (score < 19):
                 Data_Transmit.SendSerial('Unknown Species')
             else:
                 Data_Transmit.SendSerial('No Species Detected')
@@ -46,7 +46,8 @@ def main():
             time.sleep(10) # Remove when not testing!
         
         else:
-            print("No Data!")
+            #print("No Data!")
+            pass
     
 
 

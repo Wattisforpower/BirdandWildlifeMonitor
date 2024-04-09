@@ -8,6 +8,7 @@ class IIC_SPI_Communications:
         self.Audio = pyaudio.PyAudio()
 
         self.sampleRate = Rate
+        print(self.sampleRate)
         self.Operatingchannels = Usedchannels
         self.InDeviceIndex = InDevice
         self.CHUNK = chunks
@@ -15,8 +16,10 @@ class IIC_SPI_Communications:
 
         if (format == 24):
             self.pyaudioFormat = pyaudio.paInt24
-        else:
-            self.pyaudioFormat = pyaudio.paInt24
+        elif (format == 16):
+            self.pyaudioFormat = pyaudio.paInt16
+        elif (format == 32):
+            self.pyaudioFormat = pyaudio.paInt32
             
     
     def GetDevices(self):
@@ -57,6 +60,9 @@ class IIC_SPI_Communications:
         self.stream.stop_stream()
 
         print('--- Audio Transfer Completed ---')
+    
+    def returnBuffer(self):
+        return self.data_frames
 
     def DataSaver(self, NameofFile):
         data_folder = 'Toolboxes/Data/'

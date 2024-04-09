@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 import random as rd
 import numpy as np
 import scipy.signal as sig
-import spidev
 
 class Buffer:
     def __init__(self, buffersize, timeframe, samplerate) -> None:
@@ -22,7 +21,7 @@ class Buffer:
         self.LoadingBuffer = self.BuffTwo
 
     def __LoadAudio(self, audiopath):
-        self.LoadingBuffer, sr = librosa.load(audiopath, sr = 20000)
+        self.LoadingBuffer, sr = librosa.load(audiopath, sr = 48000)
     
 
     

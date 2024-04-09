@@ -15,15 +15,15 @@ import os
 class RunPredictor:
     def __init__(self) -> None:
         self.nn = Neural_Network_Toolbox.Neural_Networks()
-        self.TF_MODEL_FILE_PATH = 'DNN_V3.1.tflite'
-        self.MODEL_LOCATION = 'SavedModel/variables'
+        #self.TF_MODEL_FILE_PATH = 'DNN_V3.1.tflite'
+        #self.MODEL_LOCATION = 'SavedModel/variables'
         self.loadoptions = tf.saved_model.LoadOptions(experimental_io_device="/job:localhost")
 
     def runClassifier(self, source, IsPin = False):
         self.combine = np.empty(0, dtype = np.float32)
         # Define the interpreter and the location of the neural network model
         #interpreter = tf.lite.Interpreter(model_path=self.TF_MODEL_FILE_PATH)
-        #interpreter = tf.saved_model.load(self.MODEL_LOCATION)
+        #interpreter = tf.saved_model.load('saved_model')
         interpreter = tf.keras.models.load_model('saved_model', options = self.loadoptions)
 
         #print(interpreter.get_signature_list())
@@ -36,7 +36,7 @@ class RunPredictor:
         Input = tf.convert_to_tensor(self.nn.Buffers.ConverttoData(IsPin, source))
 
         # Run the prediction
-        predictions_lite = classify_lite(normalization_input=Input[:-1])['dense_14']
+        predictions_lite = classify_lite(normalization_input=Input[:-1])['dense_24']
 
         score_lite = tf.nn.softmax(predictions_lite)
 
