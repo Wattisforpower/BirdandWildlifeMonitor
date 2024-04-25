@@ -7,6 +7,10 @@ from Toolboxes import Predictor_Toolbox
 import pathlib
 import os
 
+from datasets import load_dataset, Dataset
+from transformers import AutoTokenizer
+
+
 #https://huggingface.co/blog/audio-datasets
 
 System = Predictor_Toolbox.RunPredictor()
@@ -20,73 +24,60 @@ def LoadAudio(audiopath):
 
     return X_db.flatten()
 
+# LoadData
+dataset = load_dataset("ethanbarrett2001/AudioFilesforBWM", streaming= True)
+pd_data = pd.DataFrame(dataset["train"])
+ds_data = Dataset.from_pandas(pd_data)
+tokenizer = AutoTokenizer.from_pretrained('bert-base-cased')
+dataset = ds_data.map(lambda e: tokenizer(e['sentence1'], truncation= True, padding='max_length'))
+train_dataset = ds_data["train"].to_tf_dataset(
+    columns=['input_ids', 'token_type_ids', 'attention_mask', 'label'],
+    shuffle = True,
+    batch_size= 32
+)
 
-def PrepData(self) -> None:
-        # Barnswallow
-        path = pathlib.Path('BIRD_RECORDINGS').with_suffix('')
-        ListOfItems = list(path.glob('*/*.wav'))
-        Dataframe = pd.DataFrame()
+model = tf.keras.Sequential([
+    tf.keras.layers.Dense(4, activation = tf.nn.elu),
+    tf.keras.layers.Dense(16, activation = tf.nn.elu),
+    tf.keras.layers.Dense(128, activation = tf.nn.elu),
+    tf.keras.layers.Dense(256, activation = tf.nn.elu),
+    tf.keras.layers.Dropout(0.3),
 
-        for item in ListOfItems:
-            data = self.Buffers.ConverttoData(False, item)
+    tf.keras.layers.Dense(128, activation = tf.nn.elu),
+    tf.keras.layers.Dense(128, activation = tf.nn.elu),
+    tf.keras.layers.Dense(256, activation = tf.nn.elu),
+    tf.keras.layers.Dropout(0.3),
 
-            filename = os.path.dirname(item)
-            filename = filename.split('\\')
-            print(filename[1])
+    tf.keras.layers.Dense(128, activation = tf.nn.elu),
+    tf.keras.layers.Dense(128, activation = tf.nn.elu),
+    tf.keras.layers.Dense(256, activation = tf.nn.elu),
+    tf.keras.layers.Dropout(0.3),
 
-            Class_Value = 0
+    tf.keras.layers.Dense(128, activation = tf.nn.elu),
+    tf.keras.layers.Dense(128, activation = tf.nn.elu),
+    tf.keras.layers.Dense(256, activation = tf.nn.elu),
+    tf.keras.layers.Dense(128, activation = tf.nn.elu),
+    tf.keras.layers.Dropout(0.3),
+                            
+    tf.keras.layers.Dense(11, activation = tf.nn.softmax)
+])
 
-            if filename[1] == 'Barnswallow':
-                Class_Value = 1
+epochs = 20
+Optimizer = tf.keras.optimizers.Adam()
 
-            elif filename[1] == 'BlackheadedGull':
-                Class_Value = 2
-            
-            elif filename[1] == 'CommonGuillemot':
-                Class_Value = 3
+model.compile(
+    optimizer = Optimizer,
+    loss = tf.keras.losses.SparseCategoricalCrossentropy(from_logits = True),
+    metrics = ['accuracy']
+)
 
-            elif filename[1] == 'CommonStarling':
-                Class_Value = 4
+model.summary()
 
-            elif filename[1] == 'Dunlin':
-                Class_Value = 5
-
-            elif filename[1] == 'EurasianOysterCatcher':
-                Class_Value = 6
-
-            elif filename[1] == 'EuropeanGoldenPlover':
-                Class_Value = 7
-
-            elif filename[1] == 'HerringGull':
-                Class_Value = 8
-
-            elif filename[1] == 'NorthernLapwing':
-                Class_Value = 9
-
-            elif filename[1] == 'Redwing':
-                Class_Value = 10
-
-            series = pd.Series(data, name = item)
-            file_data = {filename[1]}
-            series.loc[len(series)] = Class_Value
-
-            series = pd.to_numeric(series, errors = 'coerce').astype('float32')
-
-            series.loc[len(series)] = file_data
-            
-
-            self.Dataframe = pd.concat([self.Dataframe, series.to_frame()], axis = 1)
-        
-               
-        self.Dataframe.to_csv('dataset2.csv', index = False, encoding = 'utf-8')
-
-
-
-df = pd.read_csv('datasetWavFiles.csv', low_memory = False)
-
-df = df.T
-
-print(df.head())
+History = model.fit(
+    train_dataset.repeat(),
+    steps_per_epoch = 100,
+    epochs = epochs
+)
 
 
 '''
@@ -116,48 +107,9 @@ numeric_batches = numeric_dataset.shuffle(10).batch(32)
 
 
 
-model = tf.keras.Sequential([
-    normalization_layer,
-    tf.keras.layers.Dense(4, input_shape = (400774,), activation = tf.nn.elu),
-    tf.keras.layers.Dense(16, activation = tf.nn.elu),
-    tf.keras.layers.Dense(128, activation = tf.nn.elu),
-    tf.keras.layers.Dense(256, activation = tf.nn.elu),
-    tf.keras.layers.Dropout(0.3),
-
-    tf.keras.layers.Dense(128, activation = tf.nn.elu),
-    tf.keras.layers.Dense(128, activation = tf.nn.elu),
-    tf.keras.layers.Dense(256, activation = tf.nn.elu),
-    tf.keras.layers.Dropout(0.3),
-
-    tf.keras.layers.Dense(128, activation = tf.nn.elu),
-    tf.keras.layers.Dense(128, activation = tf.nn.elu),
-    tf.keras.layers.Dense(256, activation = tf.nn.elu),
-    tf.keras.layers.Dropout(0.3),
-
-    tf.keras.layers.Dense(128, activation = tf.nn.elu),
-    tf.keras.layers.Dense(128, activation = tf.nn.elu),
-    tf.keras.layers.Dense(256, activation = tf.nn.elu),
-    tf.keras.layers.Dense(128, activation = tf.nn.elu),
-    tf.keras.layers.Dropout(0.3),
-                            
-    tf.keras.layers.Dense(11, activation = tf.nn.softmax)
-])
-
 
 epochs = 20
 Optimizer = tf.keras.optimizers.Adam()
 
-Model.compile(
-    optimizer = Optimizer,
-    loss = tf.keras.losses.SparseCategoricalCrossentropy(from_logits = True),
-    metrics = ['accuracy']
-)
 
-model.summary()
-
-History = model.fit(
-    numeric_batches.repeat(),
-    steps_per_epoch = 100,
-    epochs = epochs
-)
 '''
