@@ -4,6 +4,10 @@ import pandas as pd
 import librosa
 import matplotlib
 from Toolboxes import Predictor_Toolbox
+import pathlib
+import os
+
+#https://huggingface.co/blog/audio-datasets
 
 System = Predictor_Toolbox.RunPredictor()
 
@@ -16,14 +20,76 @@ def LoadAudio(audiopath):
 
     return X_db.flatten()
 
-System.runClassifier('BIRD_RECORDINGS/BlackheadedGull/BlackheadedGull1_split_2_SNR_50.wav', False)
 
-'''
-df = pd.read_csv('dataset2.csv', low_memory = False)
+def PrepData(self) -> None:
+        # Barnswallow
+        path = pathlib.Path('BIRD_RECORDINGS').with_suffix('')
+        ListOfItems = list(path.glob('*/*.wav'))
+        Dataframe = pd.DataFrame()
+
+        for item in ListOfItems:
+            data = self.Buffers.ConverttoData(False, item)
+
+            filename = os.path.dirname(item)
+            filename = filename.split('\\')
+            print(filename[1])
+
+            Class_Value = 0
+
+            if filename[1] == 'Barnswallow':
+                Class_Value = 1
+
+            elif filename[1] == 'BlackheadedGull':
+                Class_Value = 2
+            
+            elif filename[1] == 'CommonGuillemot':
+                Class_Value = 3
+
+            elif filename[1] == 'CommonStarling':
+                Class_Value = 4
+
+            elif filename[1] == 'Dunlin':
+                Class_Value = 5
+
+            elif filename[1] == 'EurasianOysterCatcher':
+                Class_Value = 6
+
+            elif filename[1] == 'EuropeanGoldenPlover':
+                Class_Value = 7
+
+            elif filename[1] == 'HerringGull':
+                Class_Value = 8
+
+            elif filename[1] == 'NorthernLapwing':
+                Class_Value = 9
+
+            elif filename[1] == 'Redwing':
+                Class_Value = 10
+
+            series = pd.Series(data, name = item)
+            file_data = {filename[1]}
+            series.loc[len(series)] = Class_Value
+
+            series = pd.to_numeric(series, errors = 'coerce').astype('float32')
+
+            series.loc[len(series)] = file_data
+            
+
+            self.Dataframe = pd.concat([self.Dataframe, series.to_frame()], axis = 1)
+        
+               
+        self.Dataframe.to_csv('dataset2.csv', index = False, encoding = 'utf-8')
+
+
+
+df = pd.read_csv('datasetWavFiles.csv', low_memory = False)
 
 df = df.T
 
 print(df.head())
+
+
+'''
 
 class_names = df.pop(400776)
 
