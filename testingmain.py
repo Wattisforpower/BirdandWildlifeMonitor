@@ -1,105 +1,97 @@
-import Buffer_Toolbox
-import Neural_Network_Toolbox
-
-NN = Neural_Network_Toolbox.Neural_Networks()
-
-
-
-'''
-Buff = Buffer_Toolbox.Buffer(520, 20, 1)
-
-Data = Buff.RandomDataGenerator()
-
-Buff.BufferLoad(Data)
-Buff.BufferLoad(Data)
-
-Buff.ConverttoData(False, 'Audio/BarnswallowMB/BarnSwallow.wav')
-'''
-
 import tensorflow as tf
 import numpy as np
-import PIL
+import pandas as pd
+import librosa
+import matplotlib
+from Toolboxes import Predictor_Toolbox
 
-TF_MODEL_FILE_PATH = 'DNN_V3.1.tflite'
+System = Predictor_Toolbox.RunPredictor()
 
-interpreter = tf.lite.Interpreter(model_path=TF_MODEL_FILE_PATH)
+def LoadAudio(audiopath):
+    LoadingBuffer, sr = librosa.load(audiopath, sr = 48000)
 
-print(interpreter.get_signature_list())
+    X_STFT = librosa.stft(LoadingBuffer)
 
-classify_lite = interpreter.get_signature_runner('serving_default')
+    X_db = librosa.amplitude_to_db(np.abs(X_STFT))
 
-Input = NN.Buffers.ConverttoData(False, 'Audio/BarnswallowMB/SplitData/BarnSwallow1_split_1.wav')
+    return X_db.flatten()
 
-predictions_lite = classify_lite(normalization_input=Input[:-1])['dense_14']
-score_lite = tf.nn.softmax(predictions_lite)
-
-class_names = ['BarnSwallow',
-               'BlackheadedGull',
-               'CommonGuillemot',
-               'CommonStarling',
-               'Dunlin',
-               'EurasianOysterCatcher',
-               'EuropeanGoldenPlover',
-               'HerringGull',
-               'NorthernLapwing',
-               'Redwing']
-
-print(
-    "This Source most likely to be a {} with a {:.2f} percent confidence."
-    .format(class_names[np.argmax(score_lite) - 1], 100 * np.max(score_lite))
-)
+System.runClassifier('BIRD_RECORDINGS/BlackheadedGull/BlackheadedGull1_split_2_SNR_50.wav', False)
 
 '''
+df = pd.read_csv('dataset2.csv', low_memory = False)
 
-##################
+df = df.T
 
-import tensorflow as tf
-import numpy as np
-import PIL
+print(df.head())
 
-TF_MODEL_FILE_PATH = 'TfliteModels/CNN_ELU_V3.tflite'
+class_names = df.pop(400776)
 
-interpreter = tf.lite.Interpreter(model_path=TF_MODEL_FILE_PATH)
+d = dict.fromkeys(df.select_dtypes(object).columns, np.float32)
+df = df.astype(d)
 
-print(interpreter.get_signature_list())
+classes = df.pop(400775)
 
-classify_lite = interpreter.get_signature_runner('serving_default')
+names = list(i for i in range(0, 400774))
+numeric_values = df[names]
+numeric_tensors = tf.convert_to_tensor(numeric_values)
+class_tensors = tf.convert_to_tensor(classes)
 
-Input = 'unclassified_image.jpeg'
+# Normalize the data
+normalization_layer = tf.keras.layers.Normalization(axis = -1)
+normalization_layer.adapt(numeric_tensors)
 
 
-img = tf.keras.utils.load_img(
-    Input, 
-    target_size=(200, 200)
+# Batch the data
+
+numeric_dataset = tf.data.Dataset.from_tensor_slices((numeric_tensors,class_tensors))
+
+numeric_batches = numeric_dataset.shuffle(10).batch(32)
+
+
+
+model = tf.keras.Sequential([
+    normalization_layer,
+    tf.keras.layers.Dense(4, input_shape = (400774,), activation = tf.nn.elu),
+    tf.keras.layers.Dense(16, activation = tf.nn.elu),
+    tf.keras.layers.Dense(128, activation = tf.nn.elu),
+    tf.keras.layers.Dense(256, activation = tf.nn.elu),
+    tf.keras.layers.Dropout(0.3),
+
+    tf.keras.layers.Dense(128, activation = tf.nn.elu),
+    tf.keras.layers.Dense(128, activation = tf.nn.elu),
+    tf.keras.layers.Dense(256, activation = tf.nn.elu),
+    tf.keras.layers.Dropout(0.3),
+
+    tf.keras.layers.Dense(128, activation = tf.nn.elu),
+    tf.keras.layers.Dense(128, activation = tf.nn.elu),
+    tf.keras.layers.Dense(256, activation = tf.nn.elu),
+    tf.keras.layers.Dropout(0.3),
+
+    tf.keras.layers.Dense(128, activation = tf.nn.elu),
+    tf.keras.layers.Dense(128, activation = tf.nn.elu),
+    tf.keras.layers.Dense(256, activation = tf.nn.elu),
+    tf.keras.layers.Dense(128, activation = tf.nn.elu),
+    tf.keras.layers.Dropout(0.3),
+                            
+    tf.keras.layers.Dense(11, activation = tf.nn.softmax)
+])
+
+
+epochs = 20
+Optimizer = tf.keras.optimizers.Adam()
+
+Model.compile(
+    optimizer = Optimizer,
+    loss = tf.keras.losses.SparseCategoricalCrossentropy(from_logits = True),
+    metrics = ['accuracy']
 )
 
-img_array = tf.keras.utils.img_to_array(img)
-img_array = tf.expand_dims(img_array, 0)
+model.summary()
 
-predictions_lite = classify_lite(sequential_input=img_array)['dense_1']
-score_lite = tf.nn.softmax(predictions_lite)
-
-class_names = ['BarnSwallow',
-               'BlackheadedGull',
-               'CommonGuillemot',
-               'CommonStarling',
-               'Dunlin',
-               'EurasianOysterCatcher',
-               'EuropeanGoldenPlover',
-               'HerringGull',
-               'NorthernLapwing',
-               'Redwing']
-
-
-print(
-    "This image most likely belongs to {} with a {:.2f} percent confidence."
-    .format(class_names[np.argmax(score_lite)], 100 * np.max(score_lite))
+History = model.fit(
+    numeric_batches.repeat(),
+    steps_per_epoch = 100,
+    epochs = epochs
 )
-
-
-#NN.PrepData()
-
-NN.run()
-
-NN.SaveModel('DNN_V2.tflite')
 '''
