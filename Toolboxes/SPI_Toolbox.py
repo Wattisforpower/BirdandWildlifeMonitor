@@ -2,9 +2,9 @@ import numpy as np
 import pyaudio
 import os, wave
 import matplotlib.pyplot as plt
-import scipy
 import spidev
 import time
+import struct
 
 class IIC_SPI_Communications:
     def __init__(self, format, InDevice, Rate = 48000, Usedchannels = 1, chunks = 512, BufferFormat = np.int16):
@@ -90,10 +90,14 @@ class IIC_SPI_Communications:
 
 class SPI_Communications:
     def __init__(self):
-        self.deserialize_Buffer = [0,0,0,0]
-        self.deserialize_buffer_head = 0
         self.SPI = spidev.SpiDev(0, 0)
         self.AudioBuffer = np.empty(0, dtype = np.int32)
+
+        self.instream2 = np.ones((2, 1), dtype = np.uint8)
+        self.output_buffer = [None] * 480000
+        self.deserialise_buffer = [0] * 3
+        self.deserialise_buffer_head = 0
+
         self.SampleRate = 12000000
 
     def deserialize(self, byte_):
@@ -102,9 +106,32 @@ class SPI_Communications:
             output = (self.deserialize_Buffer[0] << 24) | (self.deserialize_Buffer[1] << 16) | (self.deserialize_Buffer[2] << 8) | (self.deserialize_Buffer[3])
             return output
         else:
-            self.deserialize_Buffer[self.deserialize_buffer_head] = byte_
+            self.deserialize_buffer[self.deserialize_buffer_head] = byte_
             self.deserialize_buffer_head += 1
             return 0
+    
+    def deserialise_2(self, input_byte):
+        if input_byte == 10:
+            self.deserialise_buffer_head = 0
+            output = (self.deserialise_buffer[0] << 8) | (self.deserialise_buffer[1])
+            return output
+        else:
+            self.deserialise_buffer[self.deserialise_buffer_head] = input_byte
+            self.deserialise_buffer_head += 1
+            if self.deserialise_buffer_head >= 3:
+                self.deserialise_buffer_head = 0
+    
+    def read_bytes_2(self):
+        instream2 = self.SPI.xfer2([0x00, 0x00, 0x00])
+
+        if (not((instream2[0] == 0x00) and (instream2[1] == 0x00) and (instream2[2]))):
+            for m in range(3):
+                deserialised_data = self.deserialise_2(instream2[m])
+
+                if deserialised_data != None:
+                    if (deserialised_data >= 2**15):
+                        deserialised_data = deserialised_data - 2**16
+                    return deserialised_data
     
     def Init_SPI(self):
         self.SPI.mode = 0b01
@@ -123,9 +150,10 @@ class SPI_Communications:
     def readbytes_and_deserialize(self):
         #self.SPI.writebytes([0x80, 0x00])
         #time.sleep(0.1)
+        prev_Val = 0
         instream = np.ones((4, 1), dtype = np.uint8)
         instream = self.SPI.xfer2([0x00, 0x00, 0x00, 0x00, 0x00])
-        #instream = self.SPI.readbytes(5)
+        instream = self.SPI.readbytes(5)
         #print(instream)
         output = np.ones((1,1), dtype = np.int32)        
         output = (instream[0] << 24) | (instream[1] << 16) | (instream[2] << 8) | (instream[3])
@@ -133,13 +161,17 @@ class SPI_Communications:
         if (output >= 2**31):
             output = output - 2**32
 
-        if (output != 0):
-            #print(instream)
-            print(output)
+        if prev_Val != int(output):
+            if (output != 0):
+                print(output)
+                self.AudioBuffer = np.append(self.AudioBuffer, int(output))
+                prev_Val = int(output)
+                #print(self.AudioBuffer)
         
-            self.AudioBuffer = np.append(self.AudioBuffer, output)
 
-        return output
+                return output
+    
+        return 0
 
     def Convert_to_wav(self, filename):
 
@@ -151,16 +183,60 @@ class SPI_Communications:
         
         File = data_folder + filename
 
+        Data = self.AudioBuffer
+
         # Write to file
-        wf = wave.open(data_folder + filename + '.wav', 'wb')
+        sample_rate = 48000
+        duration = 10
+        wf = wave.open(data_folder + filename, 'w') 
         wf.setnchannels(1)
-        wf.setsampwidth(2)
-        wf.setframerate(4800)
-        wf.writeframes(b''.join(self.AudioBuffer))
+        wf.setsampwidth(4)
+        wf.setframerate(sample_rate)
+        #for i in range(sample_rate * duration):
+        for i in range(len(self.AudioBuffer)):
+            value = int(self.AudioBuffer[i]) *1000000
+            if(value > 2147483647):
+                value = 2147483647
+            elif(value < -2147483647):
+                value = -2147483647
+            #print(value)
+            data = struct.pack('<i',value)
+            wf.writeframesraw(data)
+        #wf.writeframes(b''.join(Data))
         wf.close()
 
         # Clear AudioBuffer
         self.AudioBuffer = np.empty(0)
+    
+    def convert_to_wav_2(self, filename):
+        data_folder = 'Toolboxes/Data/'
+
+        if os.path.isdir(data_folder) == False:
+            os.mkdir(data_folder)
+        
+        File = data_folder + filename
+
+        # Write to file
+        sample_rate = 48000
+        duration = 10
+
+        wf = wave.open(File, 'w')
+        wf.setnchannels(1)
+        wf.setsampwidth(2)
+        wf.setframerate(sample_rate)
+
+        for i in range(sample_rate * duration):
+            value = int(self.output_buffer[i])
+
+            if (value > (2**15)):
+                value = (2**15)
+            elif (value < -(2**15)):
+                value = -(2**15)
+            
+            data = struct.pack('<h', value)
+            wf.writeframesraw(data)
+        
+        wf.close()
     
     def GenerateGraph(self):
                
@@ -169,28 +245,16 @@ class SPI_Communications:
         plt.show()
 
     def RecordAudio(self, lengthofAudio = 10):
-        timeNow = time.time()
-
-        while True:
+        Max_Samples = 48000 * lengthofAudio
+        i = 0
+        while (len(self.AudioBuffer) < Max_Samples):
             self.readbytes_and_deserialize()
 
-            timeNew = time.time()
+    def RecordAudio_2(self):
+        idx = 0
 
-            timeDelta = timeNew - timeNow # work out the change in time
-
-            if timeDelta >= lengthofAudio:
-                break
-
-
-
-# Testing that code works
-SPI = SPI_Communications()
-
-SPI.Init_SPI()
-
-
-
-SPI.RecordAudio(10)
-
-SPI.GenerateGraph()
-SPI.Convert_to_wav('TempSingle')
+        while (idx < 480000):
+            self.output_buffer[idx] = self.read_bytes_2()
+            
+            if (self.output_buffer[idx] != None):
+                idx += 1
