@@ -1,105 +1,115 @@
-import Buffer_Toolbox
-import Neural_Network_Toolbox
-
-NN = Neural_Network_Toolbox.Neural_Networks()
-
-
-
-'''
-Buff = Buffer_Toolbox.Buffer(520, 20, 1)
-
-Data = Buff.RandomDataGenerator()
-
-Buff.BufferLoad(Data)
-Buff.BufferLoad(Data)
-
-Buff.ConverttoData(False, 'Audio/BarnswallowMB/BarnSwallow.wav')
-'''
-
 import tensorflow as tf
 import numpy as np
-import PIL
+import pandas as pd
+import librosa
+import matplotlib
+from Toolboxes import Predictor_Toolbox
+import pathlib
+import os
 
-TF_MODEL_FILE_PATH = 'DNN_V3.1.tflite'
+from datasets import load_dataset, Dataset
+from transformers import AutoTokenizer
 
-interpreter = tf.lite.Interpreter(model_path=TF_MODEL_FILE_PATH)
 
-print(interpreter.get_signature_list())
+#https://huggingface.co/blog/audio-datasets
 
-classify_lite = interpreter.get_signature_runner('serving_default')
+System = Predictor_Toolbox.RunPredictor()
 
-Input = NN.Buffers.ConverttoData(False, 'Audio/BarnswallowMB/SplitData/BarnSwallow1_split_1.wav')
+def LoadAudio(audiopath):
+    LoadingBuffer, sr = librosa.load(audiopath, sr = 48000)
 
-predictions_lite = classify_lite(normalization_input=Input[:-1])['dense_14']
-score_lite = tf.nn.softmax(predictions_lite)
+    X_STFT = librosa.stft(LoadingBuffer)
 
-class_names = ['BarnSwallow',
-               'BlackheadedGull',
-               'CommonGuillemot',
-               'CommonStarling',
-               'Dunlin',
-               'EurasianOysterCatcher',
-               'EuropeanGoldenPlover',
-               'HerringGull',
-               'NorthernLapwing',
-               'Redwing']
+    X_db = librosa.amplitude_to_db(np.abs(X_STFT))
 
-print(
-    "This Source most likely to be a {} with a {:.2f} percent confidence."
-    .format(class_names[np.argmax(score_lite) - 1], 100 * np.max(score_lite))
+    return X_db.flatten()
+
+# LoadData
+dataset = load_dataset("ethanbarrett2001/AudioFilesforBWM", streaming= True)
+pd_data = pd.DataFrame(dataset["train"])
+ds_data = Dataset.from_pandas(pd_data)
+tokenizer = AutoTokenizer.from_pretrained('bert-base-cased')
+dataset = ds_data.map(lambda e: tokenizer(e['sentence1'], truncation= True, padding='max_length'))
+train_dataset = ds_data["train"].to_tf_dataset(
+    columns=['input_ids', 'token_type_ids', 'attention_mask', 'label'],
+    shuffle = True,
+    batch_size= 32
 )
+
+model = tf.keras.Sequential([
+    tf.keras.layers.Dense(4, activation = tf.nn.elu),
+    tf.keras.layers.Dense(16, activation = tf.nn.elu),
+    tf.keras.layers.Dense(128, activation = tf.nn.elu),
+    tf.keras.layers.Dense(256, activation = tf.nn.elu),
+    tf.keras.layers.Dropout(0.3),
+
+    tf.keras.layers.Dense(128, activation = tf.nn.elu),
+    tf.keras.layers.Dense(128, activation = tf.nn.elu),
+    tf.keras.layers.Dense(256, activation = tf.nn.elu),
+    tf.keras.layers.Dropout(0.3),
+
+    tf.keras.layers.Dense(128, activation = tf.nn.elu),
+    tf.keras.layers.Dense(128, activation = tf.nn.elu),
+    tf.keras.layers.Dense(256, activation = tf.nn.elu),
+    tf.keras.layers.Dropout(0.3),
+
+    tf.keras.layers.Dense(128, activation = tf.nn.elu),
+    tf.keras.layers.Dense(128, activation = tf.nn.elu),
+    tf.keras.layers.Dense(256, activation = tf.nn.elu),
+    tf.keras.layers.Dense(128, activation = tf.nn.elu),
+    tf.keras.layers.Dropout(0.3),
+                            
+    tf.keras.layers.Dense(11, activation = tf.nn.softmax)
+])
+
+epochs = 20
+Optimizer = tf.keras.optimizers.Adam()
+
+model.compile(
+    optimizer = Optimizer,
+    loss = tf.keras.losses.SparseCategoricalCrossentropy(from_logits = True),
+    metrics = ['accuracy']
+)
+
+model.summary()
+
+History = model.fit(
+    train_dataset.repeat(),
+    steps_per_epoch = 100,
+    epochs = epochs
+)
+
 
 '''
 
-##################
+class_names = df.pop(400776)
 
-import tensorflow as tf
-import numpy as np
-import PIL
+d = dict.fromkeys(df.select_dtypes(object).columns, np.float32)
+df = df.astype(d)
 
-TF_MODEL_FILE_PATH = 'TfliteModels/CNN_ELU_V3.tflite'
+classes = df.pop(400775)
 
-interpreter = tf.lite.Interpreter(model_path=TF_MODEL_FILE_PATH)
+names = list(i for i in range(0, 400774))
+numeric_values = df[names]
+numeric_tensors = tf.convert_to_tensor(numeric_values)
+class_tensors = tf.convert_to_tensor(classes)
 
-print(interpreter.get_signature_list())
-
-classify_lite = interpreter.get_signature_runner('serving_default')
-
-Input = 'unclassified_image.jpeg'
-
-
-img = tf.keras.utils.load_img(
-    Input, 
-    target_size=(200, 200)
-)
-
-img_array = tf.keras.utils.img_to_array(img)
-img_array = tf.expand_dims(img_array, 0)
-
-predictions_lite = classify_lite(sequential_input=img_array)['dense_1']
-score_lite = tf.nn.softmax(predictions_lite)
-
-class_names = ['BarnSwallow',
-               'BlackheadedGull',
-               'CommonGuillemot',
-               'CommonStarling',
-               'Dunlin',
-               'EurasianOysterCatcher',
-               'EuropeanGoldenPlover',
-               'HerringGull',
-               'NorthernLapwing',
-               'Redwing']
+# Normalize the data
+normalization_layer = tf.keras.layers.Normalization(axis = -1)
+normalization_layer.adapt(numeric_tensors)
 
 
-print(
-    "This image most likely belongs to {} with a {:.2f} percent confidence."
-    .format(class_names[np.argmax(score_lite)], 100 * np.max(score_lite))
-)
+# Batch the data
+
+numeric_dataset = tf.data.Dataset.from_tensor_slices((numeric_tensors,class_tensors))
+
+numeric_batches = numeric_dataset.shuffle(10).batch(32)
 
 
-#NN.PrepData()
 
-NN.run()
 
-NN.SaveModel('DNN_V2.tflite')
+epochs = 20
+Optimizer = tf.keras.optimizers.Adam()
+
+
 '''

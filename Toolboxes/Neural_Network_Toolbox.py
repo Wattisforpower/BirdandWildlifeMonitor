@@ -6,9 +6,6 @@ import pandas as pd
 from sklearn import metrics
 import pathlib
 import os
-import pygad.kerasga
-import pygad
-
 
 
 class Neural_Networks:

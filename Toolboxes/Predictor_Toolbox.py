@@ -27,12 +27,10 @@ class RunPredictor:
         #interpreter = tf.keras.models.load_model('saved_model', options = self.loadoptions)
 
         #print(interpreter.get_signature_list())
-        #print(list(interpreter.signatures.keys()))
 
         # Collect the signature of the inputs and outputs of the neural network
         #classify_lite = interpreter.get_signature_runner('serving_default')
         classify_lite = interpreter.signatures["serving_default"]
-        #print(classify_lite.structured_outputs)
 
         # convert the data into something readable by the neural network
         Input = tf.convert_to_tensor(self.nn.Buffers.ConverttoData(IsPin, source))
