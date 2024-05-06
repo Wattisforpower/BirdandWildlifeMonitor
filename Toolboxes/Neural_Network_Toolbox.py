@@ -15,47 +15,46 @@ class Neural_Networks:
 
     def PrepData(self) -> None:
         # Barnswallow
-        path = pathlib.Path('Audio').with_suffix('')
-        ListOfItems = list(path.glob('*/SplitData/*.wav'))
+        path = pathlib.Path('/home/pi/Documents/Audio/TestingDatasetforNN').with_suffix('')
+        ListOfItems = list(path.glob('*/*.wav'))
         self.Dataframe = pd.DataFrame()
 
         for item in ListOfItems:
             data = self.Buffers.ConverttoData(False, item)
-
             filename = os.path.dirname(item)
-            filename = filename.split('\\')
-            print(filename[1])
+            filename = filename.split('/')
+            print(filename[6])
 
             Class_Value = 0
 
-            if filename[1] == 'BarnswallowMB':
+            if filename[1] == 'Barnswallow':
                 Class_Value = 1
 
-            elif filename[1] == 'BlackheadedGullMB':
+            elif filename[1] == 'BlackheadedGull':
                 Class_Value = 2
             
-            elif filename[1] == 'CommonGuillemotMB':
+            elif filename[1] == 'CommonGuillemot':
                 Class_Value = 3
 
-            elif filename[1] == 'CommonStarlingMB':
+            elif filename[1] == 'CommonStarling':
                 Class_Value = 4
 
-            elif filename[1] == 'DunlinMB':
+            elif filename[1] == 'Dunlin':
                 Class_Value = 5
 
-            elif filename[1] == 'EurasianOysterCatcherMB':
+            elif filename[1] == 'EurasianOysterCatcher':
                 Class_Value = 6
 
-            elif filename[1] == 'EuropeanGoldenPloverMB':
+            elif filename[1] == 'EuropeanGoldenPlover':
                 Class_Value = 7
 
-            elif filename[1] == 'HerringGullMB':
+            elif filename[1] == 'HerringGull':
                 Class_Value = 8
 
-            elif filename[1] == 'NorthernLapwingMB':
+            elif filename[1] == 'NorthernLapwing':
                 Class_Value = 9
 
-            elif filename[1] == 'RedwingMB':
+            elif filename[1] == 'Redwing':
                 Class_Value = 10
 
             series = pd.Series(data, name = item)
@@ -70,7 +69,7 @@ class Neural_Networks:
             self.Dataframe = pd.concat([self.Dataframe, series.to_frame()], axis = 1)
         
                
-        self.Dataframe.to_csv('dataset2.csv', index = False, encoding = 'utf-8')
+        self.Dataframe.to_csv('training_dataset.csv', index = False, encoding = 'utf-8')
             
 
     def __Preprocessing(self) -> None:

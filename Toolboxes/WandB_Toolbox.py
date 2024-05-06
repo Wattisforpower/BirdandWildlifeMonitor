@@ -27,6 +27,64 @@ sweep_configuration = {
     }
 }
 
+# Load the Data
+df = pd.read_csv('/home/pi/Documents/GitHub/BirdandWildlifeMonitor/dataset2.csv', low_memory = False)
+
+df = df.T
+
+print(df.head())
+
+class_names = df.pop(400776)
+        
+d = dict.fromkeys(df.select_dtypes(object).columns, np.float32)
+df = df.astype(d)
+
+classes = df.pop(400775)
+
+names = list(i for i in range(0, 400774))
+numeric_values = df[names]
+numeric_tensors = tf.convert_to_tensor(numeric_values)
+class_tensors = tf.convert_to_tensor(classes)
+
+# Normalize the data
+normalization_layer = tf.keras.layers.Normalization(axis = -1)
+normalization_layer.adapt(numeric_tensors)
+
+# Batch the data
+
+numeric_dataset = tf.data.Dataset.from_tensor_slices((numeric_tensors, class_tensors))
+
+numeric_batches = numeric_dataset.shuffle(10).batch(32)
+
+# load Training Data
+
+df = pd.read_csv('/home/pi/Documents/GitHub/BirdandWildlifeMonitor/training_dataset4.csv', low_memory = false)
+
+df = df.T
+
+print(df.head())
+
+class_names = df.pop(400776)
+        
+d = dict.fromkeys(df.select_dtypes(object).columns, np.float32)
+df = df.astype(d)
+
+training_classes = df.pop(400775)
+
+names = list(i for i in range(0, 400774))
+training_numeric_values = df[names]
+training_numeric_tensors = tf.convert_to_tensor(training_numeric_values)
+training_class_tensors = tf.convert_to_tensor(training_classes)
+
+# Normalize the data
+training_normalization_layer = tf.keras.layers.Normalization(axis = -1)
+training_normalization_layer.adapt(training_numeric_tensors)
+
+# Batch the data
+
+training_numeric_dataset = tf.data.Dataset.from_tensor_slices((training_numeric_tensors, training_class_tensors))
+
+training_numeric_batches = training_numeric_dataset.shuffle(10).batch(32)
 
 def run():
     # Initialized wandb
@@ -52,34 +110,7 @@ def run():
 
     config = wandb.config
 
-    # Load the Data
-    df = pd.read_csv('dataset2.csv', low_memory = False)
-
-    df = df.T
-
-    print(df.head())
-
-    class_names = df.pop(400776)
-            
-    d = dict.fromkeys(df.select_dtypes(object).columns, np.float32)
-    df = df.astype(d)
-
-    classes = df.pop(400775)
-
-    names = list(i for i in range(0, 400774))
-    numeric_values = df[names]
-    numeric_tensors = tf.convert_to_tensor(numeric_values)
-    class_tensors = tf.convert_to_tensor(classes)
-
-    # Normalize the data
-    normalization_layer = tf.keras.layers.Normalization(axis = -1)
-    normalization_layer.adapt(numeric_tensors)
-
-    # Batch the data
-
-    numeric_dataset = tf.data.Dataset.from_tensor_slices((numeric_tensors, class_tensors))
-
-    numeric_batches = numeric_dataset.shuffle(10).batch(32)
+    
 
     model = tf.keras.Sequential([
         normalization_layer,
@@ -119,7 +150,9 @@ def run():
 
     History = model.fit(
         numeric_batches.repeat(),
+        validation_data = training_numeric_batches.repeat(),
         steps_per_epoch = 100,
+        validation_steps= 50,
         epochs = epochs,
         callbacks = [
             WandbMetricsLogger(log_freq= 5),
@@ -128,7 +161,7 @@ def run():
         ]
     )
 
-sweep_id = wandb.sweep(sweep_configuration, project="BirdWildlifeMonitor-Sweep-Accuracy")
+sweep_id = wandb.sweep(sweep_configuration, project="BirdWildlifeMonitor-Sweep-Accuracy-WithValidation")
 
 wandb.agent(sweep_id=sweep_id, function=run, count = 20)
 

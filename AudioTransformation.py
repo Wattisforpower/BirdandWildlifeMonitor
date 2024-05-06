@@ -79,5 +79,4 @@ def Batch_split(path, BatchName):
 
         i += 1
 
-Batch_split("Audio/RedwingMB", "Audio/RedwingMB/SplitData/Redwing")
-BatchConvert("Audio/RedwingMB/SplitData", "Data/Redwing/Redwing_Split")
+Split_Audio(10, "/home/pi/Downloads/Track-40.wav", "/home/pi/Downloads/split")

@@ -21,7 +21,7 @@ class Buffer:
         self.LoadingBuffer = self.BuffTwo
 
     def __LoadAudio(self, audiopath):
-        self.LoadingBuffer, sr = librosa.load(audiopath, sr = 48000)
+        self.LoadingBuffer, sr = librosa.load(audiopath, sr = 20000)
     
 
     
